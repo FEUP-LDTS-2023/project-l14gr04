@@ -27,4 +27,4 @@ import java.io.IOException;
         enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
     }
 
-}
+

@@ -54,7 +54,7 @@ public class ArenaViewerTest {
     void drawCoin() throws IOException{
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position()(3,3));
+        Mockito.verify(gui, Mockito.times(1)).drawCoin(new Position(3,3));
         Mockito.verify(gui, Mockito.times(1)).drawCoin(Mockito.any(Position.class));
     }
 
@@ -63,7 +63,7 @@ public class ArenaViewerTest {
     void drawPowerUp() throws IOException{
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawPowerUp(new Position()(4,6));
+        Mockito.verify(gui, Mockito.times(1)).drawPowerUp(new Position(4,6));
         Mockito.verify(gui, Mockito.times(1)).drawPowerUp(Mockito.any(Position.class));
     }
 

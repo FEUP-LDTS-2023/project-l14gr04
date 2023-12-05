@@ -1,12 +1,13 @@
-package Menu;
+package Model.Menu;
 
+import Model.Menu.MenuItem;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MenuChoiceTest {
+public class MenuChoiceTest extends Assertions {
     @Test
     public void choiceString (){
 
