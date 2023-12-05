@@ -1,13 +1,11 @@
-package Menu;
+package Model.Menu;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 public class MenuTest extends Assertions {
-    Menu menu;
+     Menu menu;
 
     @BeforeEach
     void newMenu(){menu = new Menu();}
