@@ -1,6 +1,7 @@
 package gui;
 
-import javax.swing.text.Position;
+
+import Model.Position;
 import java.io.IOException;
 
     public interface GUI {
@@ -16,6 +17,7 @@ import java.io.IOException;
 
         void drawCoin(Position position);
         void drawPowerUp(Position position);
+
         void clear();
 
         void refresh() throws IOException;
