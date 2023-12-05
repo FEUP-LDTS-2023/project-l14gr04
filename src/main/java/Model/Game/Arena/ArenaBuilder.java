@@ -12,7 +12,6 @@ public abstract class ArenaBuilder {
         adicionar set player, enemies e powerups
          */
         arena.setWalls(createWalls());
-
         return arena;
     }
     protected abstract int getWidth();

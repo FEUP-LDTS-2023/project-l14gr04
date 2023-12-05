@@ -1,4 +1,4 @@
-package Viewer;
+package Viewer.Game;
 
 import gui.GUI;
 
