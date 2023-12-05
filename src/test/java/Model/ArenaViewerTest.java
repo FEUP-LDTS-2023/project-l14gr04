@@ -1,10 +1,10 @@
 package Model;
 
-import Model.Arena.Arena;
+import Model.Game.Arena.Arena;
 import Model.Elements.Coin;
-import Model.Elements.Enemy;
-import Model.Elements.Player;
-import Model.Elements.PowerUp;
+import Model.Game.Elements.Enemy;
+import Model.Game.Elements.Player;
+import Model.Game.Elements.PowerUp;
 import Viewer.GameViewer;
 import gui.GUI;
 import org.junit.jupiter.api.BeforeEach;
