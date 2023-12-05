@@ -6,7 +6,7 @@ import Model.Game.Elements.Enemy;
 import Model.Game.Elements.Player;
 import Model.Game.Elements.PowerUp;
 import Model.Position;
-import Viewer.GameViewer;
+import Viewer.Game.GameViewer;
 import gui.GUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
