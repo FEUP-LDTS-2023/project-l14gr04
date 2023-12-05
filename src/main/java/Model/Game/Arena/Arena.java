@@ -1,6 +1,6 @@
 package Model.Game.Arena;
 
-import Model.Game.Elements.Wall;
+import Model.Game.Elements.*;
 import Model.Position;
 
 import java.util.List;
@@ -8,10 +8,11 @@ import java.util.List;
 public class Arena {
     private final int width;
     private final int height;
-    /*private Player player;
+    private Player player;
     private List<Enemy> enemies;
     private List<PowerUp> powerUps;
-     */
+
+    private List<Coin> Coins;
     private List<Wall> walls;
 
 
@@ -43,9 +44,39 @@ public class Arena {
         }
         return true;
     }
-    /*
-    adicionar gets e sets para player, enemies e powerups
-     */
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void setEnemies(List<Enemy> enemies) {
+        this.enemies = enemies;
+    }
+
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
+    public void setPowerUps(List<PowerUp> powerUps) {
+        this.powerUps = powerUps;
+    }
+
+    public List<Coin> getCoins() {
+        return Coins;
+    }
+
+    public void setCoins(List<Coin> coins) {
+        Coins = coins;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
 
 
 

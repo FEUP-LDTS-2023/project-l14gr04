@@ -1,7 +1,7 @@
 package Model;
 
 import Model.Game.Arena.Arena;
-import Model.Elements.Coin;
+import Model.Game.Elements.Coin;
 import Model.Game.Elements.Enemy;
 import Model.Game.Elements.Player;
 import Model.Game.Elements.PowerUp;
