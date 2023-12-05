@@ -66,7 +66,7 @@ public class Arena {
     }
 
     public void setCoins(List<Coin> coins) {
-        Coins = coins;
+        this.Coins = coins;
     }
 
     public Player getPlayer() {
