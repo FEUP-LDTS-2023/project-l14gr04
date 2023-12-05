@@ -1,3 +1,4 @@
+package Model;
 
 import Model.Position;
 import net.jqwik.api.ForAll;

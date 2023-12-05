@@ -1,4 +1,7 @@
 package Model.Game.Elements;
 
-public class Enemy {
+public class Enemy extends Element {
+    public Enemy(int x, int y) {
+        super(x, y);
+    }
 }

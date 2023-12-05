@@ -1,17 +1,18 @@
-package Model;
+package viewer;
 
 import Model.Game.Arena.Arena;
-import Model.Elements.Coin;
+import Model.Game.Elements.Coin;
 import Model.Game.Elements.Enemy;
 import Model.Game.Elements.Player;
 import Model.Game.Elements.PowerUp;
+import Model.Position;
 import Viewer.GameViewer;
 import gui.GUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import javax.swing.text.Position;
+
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -26,17 +27,17 @@ public class ArenaViewerTest {
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
 
-        arena.setEnemy(Arrays.asList(new Enemy(4, 5), new Enemy(5, 6)));
+        arena.setEnemies(Arrays.asList(new Enemy(4, 5), new Enemy(5, 6)));
         arena.setPlayer(new Player(5, 8));
-        arena.setCoin(new Coin(3,3));
-        arena.setPowerUp(new PowerUp(4,6));
+        arena.setCoins(Arrays.asList(new Coin(3,3)));
+        arena.setPowerUps(Arrays.asList(new PowerUp(4,6)));
     }
 
     @Test
     void drawPlayer() throws IOException {
         viewer.draw(gui);
 
-        Mockito.verify(gui, Mockito.times(1)).drawPlayer(new Position(5, 8));
+        Mockito.verify(gui, Mockito.times(1)).drawPlayer(new Position(5,8));
         Mockito.verify(gui, Mockito.times(1)).drawPlayer(Mockito.any(Position.class));
     }
 

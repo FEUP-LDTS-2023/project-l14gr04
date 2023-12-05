@@ -1,31 +1,42 @@
 package Model.Menu;
 
+
+import java.util.Arrays;
+import java.util.List;
+
 public class Menu {
-    private MenuItem selected;
-    private boolean choosed;
+    private final List<String> entries;
+    private int Entry=0;
+
     public Menu(){
-        selected=MenuItem.Play;
-        choosed = false;
+        this.entries= Arrays.asList("Play", "Exit");
     }
 
-    public void selectNext(){
-        if(!choosed){
-            switch(selected){
-                case Play -> selected=MenuItem.Exit;
-            }
-        }
-    }
-    public void selectPrevious(){
-        if (!choosed){
-            switch(selected){
-                case Play, Exit-> selected = MenuItem.Play;
-            }
+    public void nextEntry(){
+        Entry++;
+        if(Entry>this.entries.size()-1){
+            Entry =0;
         }
     }
 
-    public MenuItem getSelected() {
-        return selected;
+    public void previousEntry(){
+        Entry--;
+        if(Entry<0){
+            Entry = this.entries.size()-1;
+        }
+
     }
-    public void choose(){this.choosed=true;}
-    public boolean inChoice(){return choosed;}
+    public String getEntry(int e){
+        return entries.get(e);
+    }
+    public boolean isSelected(int e){
+        return Entry==e;
+    }
+    public boolean playSelected(){
+        return isSelected(0);
+    }
+    public boolean exitSelected(){
+        return isSelected(1);
+    }
+    public int getNumberEntries(){return this.entries.size();}
 }
