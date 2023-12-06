@@ -14,7 +14,7 @@ public class Arena {
     private List<Enemy> enemies;
     private List<PowerUp> powerUps;
 
-    private List<Coin> Coins;
+    private List<Coin> coins;
     private List<Wall> walls;
 
 
@@ -46,6 +46,22 @@ public class Arena {
         }
         return true;
     }
+    public boolean isCoinFree(Position position){
+        for(Coin c:coins){
+            if(c.getPosition().equals(position)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isPowerUpFree(Position position){
+        for(PowerUp p:powerUps){
+            if(p.getPosition().equals(position)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public List<Enemy> getEnemies() {
         return enemies;
@@ -64,11 +80,11 @@ public class Arena {
     }
 
     public List<Coin> getCoins() {
-        return Coins;
+        return coins;
     }
 
     public void setCoins(List<Coin> coins) {
-        this.Coins = coins;
+        this.coins = coins;
     }
 
     public Player getPlayer() {
@@ -86,8 +102,4 @@ public class Arena {
         }
         return false;
     }
-
-
-
-
 }
