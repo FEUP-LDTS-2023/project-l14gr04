@@ -6,7 +6,7 @@ import Model.Game.Elements.Enemy;
 import Model.Game.Elements.Player;
 import Model.Game.Elements.PowerUp;
 import Model.Position;
-import Viewer.Game.GameViewer;
+import Viewer.Game.ArenaViewer;
 import gui.GUI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,14 +18,14 @@ import java.util.Arrays;
 
 public class ArenaViewerTest {
     private GUI gui;
-    private GameViewer viewer;
+    private ArenaViewer viewer;
     private Arena arena;
 
     @BeforeEach
     void setUp() {
         arena = new Arena(10, 10);
         gui = Mockito.mock(GUI.class);
-        viewer = new GameViewer(arena);
+        viewer = new ArenaViewer(arena);
 
         arena.setEnemies(Arrays.asList(new Enemy(4, 5), new Enemy(5, 6)));
         arena.setPlayer(new Player(5, 8));
