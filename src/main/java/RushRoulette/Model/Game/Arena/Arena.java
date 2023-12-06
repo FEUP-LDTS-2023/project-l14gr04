@@ -1,8 +1,9 @@
 package RushRoulette.Model.Game.Arena;
 
-import Model.Game.Elements.*;
-import RushRoulette.Model.Position;
+
 import RushRoulette.Model.Game.Elements.*;
+import RushRoulette.Model.Position;
+
 
 import java.util.List;
 
