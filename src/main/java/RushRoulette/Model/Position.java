@@ -30,6 +30,7 @@ public class Position {
         return x== position.x && y== position.y;
     }
 
+
     public Position getRandomNeighbour() {
         int n = (int) (Math.random() * 4);
         switch (n) {

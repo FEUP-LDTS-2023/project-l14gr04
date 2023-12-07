@@ -1,15 +1,18 @@
 package RushRoulette.Model.Game.Arena;
 
 import RushRoulette.Model.Game.Elements.*;
+import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 
 public abstract class ArenaBuilder {
-    public Arena createArena() {
+
+    public Arena createArena() throws IOException {
         Arena arena = new Arena(getWidth(), getHeight());
 
         arena.setPlayer(createPlayer());
@@ -17,6 +20,10 @@ public abstract class ArenaBuilder {
         arena.setWalls(createWalls());
         arena.setCoins(createCoins());
         arena.setPowerUps(createPowerUps());
+
+        GameTimer gameTimer = new GameTimer(); // 60 seconds, adjust as needed
+        arena.setGameTimer(gameTimer);
+
         return arena;
     }
 
