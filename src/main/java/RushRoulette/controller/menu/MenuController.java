@@ -5,6 +5,7 @@ package RushRoulette.controller.menu;
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Arena.ArenaBuilder;
+import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
 import RushRoulette.controller.Controller;
@@ -25,7 +26,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if(getModel().exitSelected()) application.setState(null);
-                if(getModel().playSelected()) application.setState(new GameState(new ArenaBuilder().createArena()));
+                if(getModel().playSelected()) application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
 
 
         }

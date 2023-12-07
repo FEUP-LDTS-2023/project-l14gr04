@@ -2,7 +2,10 @@ package RushRoulette;
 
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Arena.ArenaBuilder;
+import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
+import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
+import RushRoulette.States.MenuState;
 import RushRoulette.States.State;
 import RushRoulette.gui.LanternaGUI;
 
@@ -17,8 +20,8 @@ public class Application {
     private State state;
 
     public Application() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(20, 20);
-        this.state = new GameState(new ArenaBuilder().createArena());
+        this.gui = new LanternaGUI(40, 20);
+        this.state = new MenuState(new Menu());
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
