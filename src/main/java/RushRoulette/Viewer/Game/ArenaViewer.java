@@ -23,7 +23,8 @@ public class ArenaViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
 
         gui.drawText(new Position(0, 0), "Score: " + getModel().getPlayer().getScore() , "#FFD700");
-        gui.drawText(new Position(10,0),"Timer: " + getModel().getGameTimer().getCurrentTime(), "#FFD700");
+        gui.drawText(new Position(31,0),"Timer: " + getModel().getGameTimer().getCurrentTime(), "#FFD700");
+        gui.drawText(new Position(15,20),"Level: "+ getModel().getArenaController().getLevel(), "#FFD700");
     }
 
     private <T extends Element> void drawListElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

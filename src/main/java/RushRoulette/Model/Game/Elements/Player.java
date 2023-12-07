@@ -25,4 +25,8 @@ public class Player extends Element {
     }
 
     public void levelPoints(){this.score+=10;}
+
+    public void resetScore(){
+        this.score=0;
+    }
 }
