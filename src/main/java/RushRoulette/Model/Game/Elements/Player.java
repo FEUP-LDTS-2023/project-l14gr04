@@ -1,18 +1,18 @@
 package RushRoulette.Model.Game.Elements;
 
 public class Player extends Element {
-    private boolean dead;
+    private int dead;
     public Player(int x, int y){
         super(x, y);
-        this.dead=false;
+        this.dead=0;
     }
 
     public void isDead(){
-        this.dead=true;
+        this.dead=1;
     }
 
-    public boolean getDead(){
+    public int getDead(){
         return dead;
-    }
+    } //if dead==0 player is alive, if dead==1 player is dead
 
 }

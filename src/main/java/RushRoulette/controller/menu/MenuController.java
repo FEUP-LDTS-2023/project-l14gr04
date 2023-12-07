@@ -3,7 +3,10 @@ package RushRoulette.controller.menu;
 
 
 import RushRoulette.Application;
+import RushRoulette.Model.Game.Arena.Arena;
+import RushRoulette.Model.Game.Arena.ArenaBuilder;
 import RushRoulette.Model.Menu.Menu;
+import RushRoulette.States.GameState;
 import RushRoulette.controller.Controller;
 import RushRoulette.gui.GUI;
 
@@ -20,9 +23,9 @@ public class MenuController extends Controller<Menu> {
             case DOWN:
                 getModel().nextEntry();
                 break;
-            /*case SELECT:
-                if(getModel().exitSelected()) game.setState(null);
-                if(getModel().playSelected()) game.setState*/
+            case SELECT:
+                if(getModel().exitSelected()) application.setState(null);
+                if(getModel().playSelected()) application.setState(new GameState(new ArenaBuilder().createArena()));
 
 
         }

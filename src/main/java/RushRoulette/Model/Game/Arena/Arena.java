@@ -1,12 +1,7 @@
 package RushRoulette.Model.Game.Arena;
-
-
 import RushRoulette.Model.Game.Elements.*;
 import RushRoulette.Model.Position;
-
-
 import java.util.List;
-
 public class Arena {
     private final int width;
     private final int height;
@@ -22,19 +17,15 @@ public class Arena {
         this.width = width;
         this.height = height;
     }
-
     public int getWidth() {
         return width;
     }
-
     public int getHeight() {
         return height;
     }
-
     public List<Wall> getWalls() {
         return walls;
     }
-
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
@@ -63,43 +54,40 @@ public class Arena {
         return true;
     }
 
-    public List<Enemy> getEnemies() {
-        return enemies;
-    }
-
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
-    }
-
-    public List<PowerUp> getPowerUps() {
-        return powerUps;
-    }
-
-    public void setPowerUps(List<PowerUp> powerUps) {
-        this.powerUps = powerUps;
-    }
-
-    public List<Coin> getCoins() {
-        return coins;
-    }
-
-    public void setCoins(List<Coin> coins) {
-        this.coins = coins;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-    public boolean isEnemy(Position position){
-        for(Enemy enemy:enemies){
-            if(enemy.getPosition().equals(position)){
-                return true;
-            }
+        public List<Enemy> getEnemies() {
+            return enemies;
         }
-        return false;
+        public void setEnemies(List<Enemy> enemies) {
+            this.enemies = enemies;
+        }
+        public List<PowerUp> getPowerUps() {
+            return powerUps;
+        }
+        public void setPowerUps(List<PowerUp> powerUps) {
+            this.powerUps = powerUps;
+        }
+
+        public List<Coin> getCoins() {
+            return coins;
+        }
+
+        public void setCoins(List<Coin> coins) {
+            this.coins = coins;
+        }
+
+        public Player getPlayer() {
+            return player;
     }
-}
+        public void setPlayer(Player player) {
+            this.player = player;
+        }
+        public boolean isEnemy(Position position) {
+            for (Enemy enemy : enemies) {
+                if (enemy.getPosition().equals(position)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    }
