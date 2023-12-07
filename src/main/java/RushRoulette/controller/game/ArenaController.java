@@ -16,8 +16,7 @@ public class ArenaController extends GameController {
     private final PlayerController playerController;
     private final EnemyController enemyController;
 
-    private int level=1;
-
+    private static int level=1;
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -30,10 +29,17 @@ public class ArenaController extends GameController {
         if ((action == GUI.ACTION.QUIT) || getModel().getPlayer().getDead() == 1) {
             application.setState(new MenuState(new Menu()));
         }
-        /*else if(getModel().getGameTimer().getCurrentTime()==0){
+        else if(getModel().getGameTimer().getCurrentTime()==0){
             level+=1;
-            application.setState((new GameState(new LoaderArenaBuilder(level).createArena())));
-        }*/
+            getModel().getPlayer().levelPoints();
+            //System.out.println(level);
+            application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
+            /*LoaderArenaBuilder newArenaBuilder = new LoaderArenaBuilder(level);
+            Arena newArena=newArenaBuilder.createArena();
+            setModel(newArena);
+            newArena.getGameTimer().getCurrentTime();*/
+
+        }
         else {
             playerController.step(application, action, time);
             enemyController.step(application, action, time);

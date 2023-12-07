@@ -21,7 +21,7 @@ public abstract class ArenaBuilder {
         arena.setCoins(createCoins());
         arena.setPowerUps(createPowerUps());
 
-        GameTimer gameTimer = new GameTimer(); // 60 seconds, adjust as needed
+        GameTimer gameTimer = new GameTimer(); // 10 seconds, adjust as needed
         arena.setGameTimer(gameTimer);
 
         return arena;
