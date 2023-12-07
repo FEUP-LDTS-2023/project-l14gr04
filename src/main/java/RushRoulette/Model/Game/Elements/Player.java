@@ -2,7 +2,7 @@ package RushRoulette.Model.Game.Elements;
 
 public class Player extends Element {
     private int dead;
-    private int score;
+    private static int score;
     public Player(int x, int y){
         super(x, y);
         this.dead=0;
@@ -23,4 +23,6 @@ public class Player extends Element {
     public void coinConsumed(){
         this.score+=1;
     }
+
+    public void levelPoints(){this.score+=10;}
 }

@@ -2,6 +2,8 @@ package RushRoulette.Model.Game.Arena;
 import RushRoulette.Model.Game.Elements.*;
 import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
+import RushRoulette.controller.game.ArenaController;
+
 import java.util.List;
 import java.util.Timer;
 
@@ -16,6 +18,9 @@ public class Arena {
     private List<Wall> walls;
 
     private GameTimer gameTimer;
+
+    private ArenaController arenaController;
+
 
 
     public Arena(int width, int height) {
@@ -118,5 +123,9 @@ public class Arena {
             if(e.getPosition().equals(position)) return false;
         }
         return true;
+    }
+
+    public ArenaController getArenaController() {
+        return arenaController;
     }
 }

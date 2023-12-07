@@ -3,6 +3,8 @@ package RushRoulette.Model.Game;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameTimer {
     private int initialTime=10;
@@ -28,7 +30,7 @@ public class GameTimer {
     private void updateTimer(){
         currentTime--;
 
-        if(currentTime<=0){
+        if(currentTime<0){
             currentTime=initialTime;
 
         }
@@ -38,5 +40,6 @@ public class GameTimer {
     public int getCurrentTime() {
         return currentTime;
     }
+
 
 }

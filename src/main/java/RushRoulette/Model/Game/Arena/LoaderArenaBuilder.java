@@ -10,10 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoaderArenaBuilder extends ArenaBuilder {
+public class LoaderArenaBuilder extends ArenaBuilder{
 
     private final List<String> lines;
-    private final int level;
+    private int level;
 
     public LoaderArenaBuilder(int  level) throws IOException{
         this.level=level;
@@ -109,4 +109,5 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         return walls;
     }
+
 }
