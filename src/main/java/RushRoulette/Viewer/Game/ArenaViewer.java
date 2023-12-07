@@ -18,11 +18,11 @@ public class ArenaViewer extends Viewer<Arena> {
         drawListElements(gui, getModel().getWalls(), new WallViewer());
         drawListElements(gui, getModel().getEnemies(), new EnemyViewer());
         drawListElements(gui,getModel().getCoins(),new CoinViewer());
-        drawListElements(gui, getModel().getPowerUps(),new PowerUpViewer()); //power ups might not be in lists, unsure
+        drawListElements(gui, getModel().getPowerUps(),new PowerUpViewer());
 
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
 
-        gui.drawText(new Position(0, 0), "Score: " , "#FFD700"); //add player.score
+        gui.drawText(new Position(0, 0), "Score: " + getModel().getPlayer().getScore() , "#FFD700");
     }
 
     private <T extends Element> void drawListElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
