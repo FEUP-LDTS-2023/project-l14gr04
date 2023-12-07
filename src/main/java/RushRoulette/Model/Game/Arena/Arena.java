@@ -1,5 +1,6 @@
 package RushRoulette.Model.Game.Arena;
 import RushRoulette.Model.Game.Elements.*;
+import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
 import java.util.List;
 import java.util.Timer;
@@ -14,6 +15,7 @@ public class Arena {
     private List<Coin> coins;
     private List<Wall> walls;
 
+    private GameTimer gameTimer;
 
 
     public Arena(int width, int height) {
@@ -37,13 +39,6 @@ public class Arena {
             if(w.getPosition().equals(position)){
                 return false;
             }
-        }
-        return true;
-    }
-
-    public boolean isEnemyFree(Position position){
-        for (Enemy e : enemies){
-            if (e.getPosition().equals(position)) return false;
         }
         return true;
     }
@@ -110,6 +105,18 @@ public class Arena {
         return false;
     }
 
-
-
+    public GameTimer getGameTimer(){
+        return this.gameTimer;
     }
+
+    public void setGameTimer(GameTimer gameTimer) {
+        this.gameTimer = gameTimer;
+    }
+
+    public boolean isEnemyFree(Position position){
+        for(Enemy e:enemies){
+            if(e.getPosition().equals(position)) return false;
+        }
+        return true;
+    }
+}

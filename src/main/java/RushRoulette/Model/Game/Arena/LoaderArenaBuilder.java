@@ -1,6 +1,7 @@
 package RushRoulette.Model.Game.Arena;
 
 import RushRoulette.Model.Game.Elements.*;
+import RushRoulette.Model.Game.GameTimer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
-    private final int level;
-    private final List<String> lines;
 
-    public LoaderArenaBuilder(int level) throws IOException{
-        this.level = level;
+    private final List<String> lines;
+    private final int level;
+
+    public LoaderArenaBuilder(int  level) throws IOException{
+        this.level=level;
 
         URL resource = LoaderArenaBuilder.class.getResource("/levels/level" + level + ".lvl");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
