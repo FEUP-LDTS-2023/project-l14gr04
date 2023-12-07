@@ -25,6 +25,10 @@ public class ArenaController extends GameController {
         this.enemyController = new EnemyController(arena);
     }
 
+    public static int getLevel() {
+        return level;
+    }
+
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
         if ((action == GUI.ACTION.QUIT) || getModel().getPlayer().getDead() == 1) {
             application.setState(new MenuState(new Menu()));
@@ -45,4 +49,6 @@ public class ArenaController extends GameController {
             enemyController.step(application, action, time);
         }
     }
+
+
 }
