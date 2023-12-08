@@ -16,12 +16,15 @@ import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class ArenaController extends GameController {
     private final PlayerController playerController;
     private final EnemyController enemyController;
 
     private static int level=1;
+
+    Random type=new Random();
 
 
     public ArenaController(Arena arena) {
@@ -63,8 +66,6 @@ public class ArenaController extends GameController {
             else{
                 level+=1;
                 getModel().getPlayer().levelPoints();
-                System.out.println(level);
-
 
                 if(level == 15){
                     MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
@@ -74,13 +75,6 @@ public class ArenaController extends GameController {
 
                 application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
 
-
-
-            /*LoaderArenaBuilder newArenaBuilder = new LoaderArenaBuilder(level);
-            Arena newArena=newArenaBuilder.createArena();
-            setModel(newArena);
-            newArena.getGameTimer().getCurrentTime();*/
-
             }
 
         }
@@ -89,6 +83,18 @@ public class ArenaController extends GameController {
             enemyController.step(application, action, time);
         }
     }
-
+    public void handlePlayerPowerUpCollision(){
+        int nextType= type.nextInt(2);
+        switch (nextType){
+            case 0:
+                getModel().getPlayer().isHit();
+                break;
+                //remove uma vida ao player
+            case 1:
+                getModel().getPlayer().addLife();
+                break;
+                //adiciona uma vida ao player
+        }
+    }
 
 }
