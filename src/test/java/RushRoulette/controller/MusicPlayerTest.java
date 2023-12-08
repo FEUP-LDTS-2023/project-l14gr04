@@ -14,9 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MusicPlayerTest {
     Music gameSoundTrackMock = Mockito.mock(Music.class);
+    Music gameSoundTrack2Mock = Mockito.mock(Music.class);
     Music gameOverMock = Mockito.mock(Music.class);
     Music selectMock = Mockito.mock(Music.class);
     Music menuSoundTrackMock = Mockito.mock(Music.class);
+    Music hitMock = Mockito.mock(Music.class);
     MusicPlayer musicPlayerSpy;
     @BeforeEach
     void MusicPlayererSetup() {
@@ -30,6 +32,10 @@ public class MusicPlayerTest {
 
         musicPlayer.setSelect(selectMock);
 
+        musicPlayer.setGameSoundTrack2(gameSoundTrack2Mock);
+
+        musicPlayer.setHit(hitMock);
+
         musicPlayerSpy = Mockito.spy(musicPlayer);
     }
 
@@ -38,6 +44,12 @@ public class MusicPlayerTest {
     void startGameSoundTrack() {
         musicPlayerSpy.start(Sounds.GAME_SOUNDTRACK);
         Mockito.verify(gameSoundTrackMock, Mockito.times(1)).startAndLoop();
+    }
+
+    @Test
+    void startGameSoundTrack2() {
+        musicPlayerSpy.start(Sounds.GAME_SOUNDTRACK2);
+        Mockito.verify(gameSoundTrack2Mock, Mockito.times(1)).startAndLoop();
     }
     @Test
     void startGameOver() {
@@ -56,12 +68,22 @@ public class MusicPlayerTest {
         Mockito.verify(selectMock, Mockito.times(1)).start();
     }
 
+    @Test
+    void startHit() {
+        musicPlayerSpy.start(Sounds.HIT);
+        Mockito.verify(hitMock, Mockito.times(1)).start();
+    }
 
     //--------------STOP-----------
     @Test
     void stopGameSoundTrack() {
         musicPlayerSpy.stop(Sounds.GAME_SOUNDTRACK);
         Mockito.verify(gameSoundTrackMock, Mockito.times(1)).stop();
+    }
+    @Test
+    void stopGameSoundTrack2() {
+        musicPlayerSpy.stop(Sounds.GAME_SOUNDTRACK2);
+        Mockito.verify(gameSoundTrack2Mock, Mockito.times(1)).stop();
     }
     @Test
     void stopGameOver() {
@@ -80,6 +102,12 @@ public class MusicPlayerTest {
         Mockito.verify(selectMock, Mockito.times(1)).stop();
     }
 
+    @Test
+    void stopHit() {
+        musicPlayerSpy.stop(Sounds.HIT);
+        Mockito.verify(hitMock, Mockito.times(1)).stop();
+    }
+
 
     //--------------isPLAYING-----------
 
@@ -92,7 +120,19 @@ public class MusicPlayerTest {
     @Test
     void isPlayingGameSoundTrackFalse() {
         Mockito.when(gameSoundTrackMock.isPlaying()).thenReturn(false);
-        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK2);
+        assertFalse(playing);
+    }
+    @Test
+    void isPlayingGameSoundTrack2True() {
+        Mockito.when(gameSoundTrack2Mock.isPlaying()).thenReturn(true);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK2);
+        assertTrue(playing);
+    }
+    @Test
+    void isPlayingGameSoundTrack2False() {
+        Mockito.when(gameSoundTrack2Mock.isPlaying()).thenReturn(false);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK2);
         assertFalse(playing);
     }
 
@@ -136,6 +176,20 @@ public class MusicPlayerTest {
         assertFalse(playing);
     }
 
+    @Test
+    void isPlayingHitTrue() {
+        Mockito.when(hitMock.isPlaying()).thenReturn(true);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.HIT);
+        assertTrue(playing);
+    }
+
+    @Test
+    void isPlayingHitFalse() {
+        Mockito.when(hitMock.isPlaying()).thenReturn(false);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.HIT);
+        assertFalse(playing);
+    }
+
     //--------------STOP_ALL-----------
 
     @Test
@@ -145,6 +199,7 @@ public class MusicPlayerTest {
         Mockito.verify(menuSoundTrackMock, Mockito.times(1)).stop();
         Mockito.verify(gameOverMock, Mockito.times(1)).stop();
         Mockito.verify(selectMock, Mockito.times(1)).stop();
+        Mockito.verify(hitMock, Mockito.times(1)).stop();
     }
 
 }

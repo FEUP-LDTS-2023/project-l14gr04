@@ -6,8 +6,13 @@ import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Game.Elements.Enemy;
 import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Menu.Menu;
+import RushRoulette.Model.PopUpScreens.GameOver;
+import RushRoulette.States.GameOverState;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
+import RushRoulette.controller.Music.Music;
+import RushRoulette.controller.Music.MusicPlayer;
+import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;
@@ -30,15 +35,29 @@ public class ArenaController extends GameController {
     }
 
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if ((action == GUI.ACTION.QUIT) || getModel().getPlayer().getDead() == 1) {
+        if ((action == GUI.ACTION.QUIT)) {
             level=1;
             getModel().getPlayer().resetScore();
             application.setState(new MenuState(new Menu()));
         }
+        else if (getModel().getPlayer().getDead() == 1) {
+            level=1;
+            getModel().getPlayer().resetScore();
+            MusicPlayer.getInstance().start(Sounds.GAMEOVER);
+            application.setState(new GameOverState(new GameOver()));
+        }
+
         else if(getModel().getGameTimer().getCurrentTime()==0){
             level+=1;
             getModel().getPlayer().levelPoints();
-            //System.out.println(level);
+            System.out.println(level);
+
+            if(level == 15){
+                MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
+                MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
+            }
+
+
             application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
             /*LoaderArenaBuilder newArenaBuilder = new LoaderArenaBuilder(level);
             Arena newArena=newArenaBuilder.createArena();
