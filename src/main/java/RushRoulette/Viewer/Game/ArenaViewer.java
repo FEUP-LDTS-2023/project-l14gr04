@@ -24,7 +24,7 @@ public class ArenaViewer extends Viewer<Arena> {
 
         gui.drawText(new Position(0, 0), "Score: " + getModel().getPlayer().getScore() , "#FFD700");
 
-        gui.drawText(new Position(15, 0), "HP:" + getModel().getPlayer().getLives() , "#FF0000");
+        gui.drawText(new Position(11, 0), "HP:" + (3 - getModel().getPlayer().getLivesLost()) , "#FF0000");
 
         gui.drawText(new Position(31,0),"Timer: " + getModel().getGameTimer().getCurrentTime(), "#FFD700");
 

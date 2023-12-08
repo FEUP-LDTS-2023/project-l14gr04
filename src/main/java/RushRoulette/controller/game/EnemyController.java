@@ -49,8 +49,8 @@ private Position chasePlayer(Position enemyPosition, Position playerPosition){
 
             if (getModel().getPlayer().getPosition().equals(position)){
                 MusicPlayer.getInstance().start(Sounds.HIT);
-                getModel().getPlayer().setLives(getModel().getPlayer().getLives() - 1);
-                if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
+                getModel().getPlayer().isHit();
+                if(getModel().getPlayer().getLivesLost() == 3) getModel().getPlayer().isDead();
             }
         }
     }

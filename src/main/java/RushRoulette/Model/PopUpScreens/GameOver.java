@@ -1,14 +1,20 @@
 package RushRoulette.Model.PopUpScreens;
 
+import RushRoulette.Model.Game.Elements.Player;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class GameOver {
     private final List<String> entries;
+    private int score;
     private int Entry = 0;
 
-    public GameOver(){this.entries = Arrays.asList("Retry", "Menu");}
+    public GameOver(int score){
+        this.entries = Arrays.asList("Retry", "Menu");
+        this.score = score;
+    }
 
     public void nextEntry(){
         Entry++;
@@ -38,5 +44,7 @@ public class GameOver {
         return isSelected(1);
     }
     public int getNumberEntries(){return this.entries.size();}
-
+    public int getScore() {
+        return score;
+    }
 }

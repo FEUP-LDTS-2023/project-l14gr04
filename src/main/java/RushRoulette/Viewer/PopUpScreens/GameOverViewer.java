@@ -24,6 +24,6 @@ public class GameOverViewer extends Viewer<GameOver> {
                     getModel().isSelected(i)? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position(5,19),"Your score: "  ,"#FFFFFF"); //+ getModel().getPlayer().getScore()
+        gui.drawText(new Position(5,19),"Your score:" + getModel().getScore()   ,"#FFFFFF");
     }
 }
