@@ -35,15 +35,15 @@ public class LoaderArenaBuilder extends ArenaBuilder{
 
     @Override
     protected List<PowerUp> createPowerUps() {
-        List<PowerUp> monsters = new ArrayList<>();
+        List<PowerUp> powerUps = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '*') monsters.add(new PowerUp(x, y));
+                if (line.charAt(x) == '*') powerUps.add(new PowerUp(x, y));
         }
 
-        return monsters;
+        return powerUps;
     }
 
     @Override
@@ -61,15 +61,15 @@ public class LoaderArenaBuilder extends ArenaBuilder{
 
     @Override
     protected List<Enemy> createEnemies() {
-        List<Enemy> monsters = new ArrayList<>();
+        List<Enemy> enemies = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'E') monsters.add(new Enemy(x, y));
+                if (line.charAt(x) == 'E') enemies.add(new Enemy(x, y));
         }
 
-        return monsters;
+        return enemies;
     }
 
     @Override
@@ -78,7 +78,9 @@ public class LoaderArenaBuilder extends ArenaBuilder{
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'P') return new Player(x,y);
+                if (line.charAt(x) == 'P') {
+                    return new Player(x,y);
+                }
         }
 
         return null;
