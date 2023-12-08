@@ -109,7 +109,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawEnemy(Position position) {
-        drawCharacter(position.getX(),position.getY(),',',"#F53E2D");
+        drawCharacter(position.getX(),position.getY(),'Ç',"#F53E2D");
     }
 
     @Override
@@ -127,7 +127,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawPowerUp(Position position) {
-        drawCharacter(position.getX(),position.getY(),'.',"#3EE3BF");
+        drawCharacter(position.getX(),position.getY(),'π',"#3EE3BF");
     }
 
     @Override

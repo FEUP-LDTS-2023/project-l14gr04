@@ -29,6 +29,8 @@ public class ArenaController extends GameController {
         return level;
     }
 
+
+
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
         if ((action == GUI.ACTION.QUIT) || getModel().getPlayer().getDead() == 1) {
             level=1;
@@ -38,13 +40,7 @@ public class ArenaController extends GameController {
         else if(getModel().getGameTimer().getCurrentTime()==0){
             level+=1;
             getModel().getPlayer().levelPoints();
-            //System.out.println(level);
             application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
-            /*LoaderArenaBuilder newArenaBuilder = new LoaderArenaBuilder(level);
-            Arena newArena=newArenaBuilder.createArena();
-            setModel(newArena);
-            newArena.getGameTimer().getCurrentTime();*/
-
         }
         else {
             playerController.step(application, action, time);
@@ -53,4 +49,11 @@ public class ArenaController extends GameController {
     }
 
 
+    public EnemyController getEnemyController() {
+        return enemyController;
+    }
+
+    public void handlePlayerPowerUpCollision(){
+        getEnemyController().adjustEnemySpeed();
+    }
 }

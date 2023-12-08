@@ -7,19 +7,24 @@ import RushRoulette.Model.Position;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class EnemyController extends GameController {
     private long lastMovement;
 
+    Random option =new Random();
+
+    private int enemySpeed;
+
     public EnemyController(Arena arena) {
         super(arena);
-
+        this.enemySpeed=500;
         this.lastMovement = 0;
     }
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > enemySpeed) {
             Position playerPosition = getModel().getPlayer().getPosition();
             for (Enemy enemy : getModel().getEnemies()){
                 Position enemyPosition = enemy.getPosition();
@@ -46,6 +51,16 @@ private Position chasePlayer(Position enemyPosition, Position playerPosition){
             enemy.setPosition(position);
             if (getModel().getPlayer().getPosition().equals(position))
                 getModel().getPlayer().isDead();
+        }
+    }
+
+    public void adjustEnemySpeed(){
+        int next = option.nextInt(2);
+        switch (next){
+            case 0:
+                enemySpeed-=500;
+            case 1:
+                enemySpeed+=500;
         }
     }
 }

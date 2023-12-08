@@ -3,6 +3,7 @@ import RushRoulette.Model.Game.Elements.*;
 import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
 import RushRoulette.controller.game.ArenaController;
+import RushRoulette.controller.game.EnemyController;
 
 import java.util.List;
 import java.util.Timer;
@@ -23,9 +24,11 @@ public class Arena {
 
 
 
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        this.arenaController=new ArenaController(this);
     }
     public int getWidth() {
         return width;
@@ -110,6 +113,16 @@ public class Arena {
         return false;
     }
 
+    public boolean isPowerUp(Position position) {
+        for (PowerUp powerUp : powerUps) {
+            if (powerUp.getPosition().equals(position)) {
+                powerUps.remove(powerUp);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public GameTimer getGameTimer(){
         return this.gameTimer;
     }
@@ -128,4 +141,6 @@ public class Arena {
     public ArenaController getArenaController() {
         return arenaController;
     }
+
+
 }

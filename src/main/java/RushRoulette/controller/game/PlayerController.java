@@ -17,6 +17,7 @@ public class PlayerController extends GameController {
             getModel().getPlayer().setPosition(position);
             if(getModel().isEnemy(position)){getModel().getPlayer().isDead();}
             if(getModel().isCoin(position)){getModel().getPlayer().coinConsumed();}
+            if(getModel().isPowerUp(position)){getModel().getArenaController().handlePlayerPowerUpCollision();}
         }
     }
     @Override
