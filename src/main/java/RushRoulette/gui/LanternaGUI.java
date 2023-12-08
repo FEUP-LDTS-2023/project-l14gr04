@@ -1,5 +1,7 @@
 package RushRoulette.gui;
 
+import RushRoulette.controller.Music.MusicPlayer;
+import RushRoulette.controller.Music.Sounds;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -75,7 +77,14 @@ public class LanternaGUI implements GUI{
         if (keyStroke == null) return ACTION.NONE;
 
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') {
+
+            MusicPlayer.getInstance().stopAll();
+            MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
+
+            return ACTION.QUIT;
+
+        }
 
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
@@ -100,7 +109,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawEnemy(Position position) {
-        drawCharacter(position.getX(),position.getY(),'Ç',"#F53E2D");
+        drawCharacter(position.getX(),position.getY(),',',"#F53E2D");
     }
 
     @Override
@@ -118,7 +127,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawPowerUp(Position position) {
-        drawCharacter(position.getX(),position.getY(),'π',"#3EE3BF");
+        drawCharacter(position.getX(),position.getY(),'.',"#3EE3BF");
     }
 
     @Override

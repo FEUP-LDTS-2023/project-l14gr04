@@ -1,32 +1,45 @@
 package RushRoulette.controller.menu;
 
 
-
 import RushRoulette.Application;
-import RushRoulette.Model.Game.Arena.Arena;
-import RushRoulette.Model.Game.Arena.ArenaBuilder;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
 import RushRoulette.controller.Controller;
+import RushRoulette.controller.Music.Music;
+import RushRoulette.controller.Music.MusicPlayer;
+import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;
 
 public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu){super(menu);}
+    public MenuController(Menu menu){
+        super(menu);
+        MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
+    }
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException{
+
         switch(action){
             case UP:
                 getModel().previousEntry();
+                MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case DOWN:
                 getModel().nextEntry();
+                MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case SELECT:
-                if(getModel().exitSelected()) application.setState(null);
-                if(getModel().playSelected()) application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                if(getModel().exitSelected()) {
+                    MusicPlayer.getInstance().stopAll();
+                    application.setState(null);
+                }
+                if(getModel().playSelected()) {
+                    application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
+                    MusicPlayer.getInstance().stopAll();
+                    MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK);
+                }
 
 
         }
