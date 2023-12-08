@@ -20,7 +20,7 @@ public class PlayerController extends GameController {
             if(getModel().isEnemy(position)){
                 MusicPlayer.getInstance().start(Sounds.HIT);
                 getModel().getPlayer().isHit();
-                if(getModel().getPlayer().getLivesLost() == 3) getModel().getPlayer().isDead();
+                if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
             }
             if(getModel().isCoin(position)){getModel().getPlayer().coinConsumed();}
         }

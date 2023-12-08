@@ -3,7 +3,7 @@ package RushRoulette.Model.Game.Elements;
 public class Player extends Element {
     private int dead;
     private static int score;
-    private static int livesLost;
+    private static int lives = 3;
     public Player(int x, int y){
         super(x, y);
         this.dead = 0;
@@ -22,18 +22,18 @@ public class Player extends Element {
     }
 
     public void setLives(int lives) { //for powerUps
-        this.livesLost = lives;
+        this.lives = lives;
     }
 
-    public int getLivesLost() {
-        return livesLost;
+    public int getLives() {
+        return lives;
     }
 
     public void isHit(){
-        this.livesLost += 1;
+        this.lives -= 1;
     }
     public void resetLives(){
-        this.livesLost = 0;
+        this.lives = 3;
     }
 
     public void coinConsumed(){
