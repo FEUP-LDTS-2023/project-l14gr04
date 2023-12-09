@@ -1,6 +1,5 @@
 package RushRoulette.Model.Menu;
 
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,7 +8,7 @@ public class Menu {
     private int Entry=0;
 
     public Menu(){
-        this.entries= Arrays.asList("Play", "Exit");
+        this.entries= Arrays.asList("Play","Instructions", "Exit");
     }
 
     public void nextEntry(){
@@ -35,8 +34,11 @@ public class Menu {
     public boolean playSelected(){
         return isSelected(0);
     }
-    public boolean exitSelected(){
+    public boolean instructionsSelected(){
         return isSelected(1);
+    }
+    public boolean exitSelected(){
+        return isSelected(2);
     }
     public int getNumberEntries(){return this.entries.size();}
 }

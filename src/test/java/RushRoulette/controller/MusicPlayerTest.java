@@ -15,10 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MusicPlayerTest {
     Music gameSoundTrackMock = Mockito.mock(Music.class);
     Music gameSoundTrack2Mock = Mockito.mock(Music.class);
+    Music gameSoundTrack3Mock = Mockito.mock(Music.class);
     Music gameOverMock = Mockito.mock(Music.class);
     Music selectMock = Mockito.mock(Music.class);
     Music menuSoundTrackMock = Mockito.mock(Music.class);
     Music hitMock = Mockito.mock(Music.class);
+
     MusicPlayer musicPlayerSpy;
     @BeforeEach
     void MusicPlayererSetup() {
@@ -36,6 +38,8 @@ public class MusicPlayerTest {
 
         musicPlayer.setHit(hitMock);
 
+        musicPlayer.setGameSoundTrack3(gameSoundTrack3Mock);
+
         musicPlayerSpy = Mockito.spy(musicPlayer);
     }
 
@@ -50,6 +54,11 @@ public class MusicPlayerTest {
     void startGameSoundTrack2() {
         musicPlayerSpy.start(Sounds.GAME_SOUNDTRACK2);
         Mockito.verify(gameSoundTrack2Mock, Mockito.times(1)).startAndLoop();
+    }
+    @Test
+    void startGameSoundTrack3() {
+        musicPlayerSpy.start(Sounds.GAME_SOUNDTRACK3);
+        Mockito.verify(gameSoundTrack3Mock, Mockito.times(1)).startAndLoop();
     }
     @Test
     void startGameOver() {
@@ -84,6 +93,11 @@ public class MusicPlayerTest {
     void stopGameSoundTrack2() {
         musicPlayerSpy.stop(Sounds.GAME_SOUNDTRACK2);
         Mockito.verify(gameSoundTrack2Mock, Mockito.times(1)).stop();
+    }
+    @Test
+    void stopGameSoundTrack3() {
+        musicPlayerSpy.stop(Sounds.GAME_SOUNDTRACK3);
+        Mockito.verify(gameSoundTrack3Mock, Mockito.times(1)).stop();
     }
     @Test
     void stopGameOver() {
@@ -133,6 +147,19 @@ public class MusicPlayerTest {
     void isPlayingGameSoundTrack2False() {
         Mockito.when(gameSoundTrack2Mock.isPlaying()).thenReturn(false);
         boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK2);
+        assertFalse(playing);
+    }
+
+    @Test
+    void isPlayingGameSoundTrack3True() {
+        Mockito.when(gameSoundTrack3Mock.isPlaying()).thenReturn(true);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK3);
+        assertTrue(playing);
+    }
+    @Test
+    void isPlayingGameSoundTrack3False() {
+        Mockito.when(gameSoundTrack3Mock.isPlaying()).thenReturn(false);
+        boolean playing = musicPlayerSpy.isPlaying(Sounds.GAME_SOUNDTRACK3);
         assertFalse(playing);
     }
 
@@ -196,6 +223,8 @@ public class MusicPlayerTest {
     void stopAll() {
         musicPlayerSpy.stopAll();
         Mockito.verify(gameSoundTrackMock, Mockito.times(1)).stop();
+        Mockito.verify(gameSoundTrack2Mock, Mockito.times(1)).stop();
+        Mockito.verify(gameSoundTrack3Mock, Mockito.times(1)).stop();
         Mockito.verify(menuSoundTrackMock, Mockito.times(1)).stop();
         Mockito.verify(gameOverMock, Mockito.times(1)).stop();
         Mockito.verify(selectMock, Mockito.times(1)).stop();

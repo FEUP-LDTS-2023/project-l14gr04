@@ -1,6 +1,5 @@
 package RushRoulette.Viewer.PopUpScreens;
 
-import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.PopUpScreens.GameOver;
 import RushRoulette.Model.Position;
 import RushRoulette.Viewer.Viewer;

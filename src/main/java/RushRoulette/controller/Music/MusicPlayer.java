@@ -3,10 +3,11 @@ package RushRoulette.controller.Music;
 public class MusicPlayer {
 
     private Music gameSoundTrack;
-
     private Music gameSoundTrack2;
+    private Music gameSoundTrack3;
     private Music menuSoundTrack;
     private Music gameOver;
+    private Music victory;
     private Music select;
     private Music hit;
     private static MusicPlayer musicManager;
@@ -14,7 +15,9 @@ public class MusicPlayer {
     private MusicPlayer() {
         gameSoundTrack = new Music("GameSoundTrack.wav");
         gameSoundTrack2 = new Music("GameSoundTrack2.wav");
+        gameSoundTrack3 = new Music("GameSoundTrack3.wav");
         gameOver = new Music("GameOver.wav");
+        victory = new Music("Victory.wav");
         menuSoundTrack = new Music("MenuSoundTrack.wav");
         select = new Music("Select.wav");
         hit = new Music("Hit.wav");
@@ -40,9 +43,15 @@ public class MusicPlayer {
         this.gameSoundTrack2 = gameSoundTrack2;
     }
 
+    public void setGameSoundTrack3(Music gameSoundTrack3) {
+        this.gameSoundTrack3 = gameSoundTrack3;
+    }
+
     public void setGameOver(Music gameOver) {
         this.gameOver = gameOver;
     }
+
+    public void setVictory(Music victory){this.victory = victory;}
 
     public void setSelect(Music select){this.select = select;}
 
@@ -57,6 +66,8 @@ public class MusicPlayer {
             case SELECT -> select.start();
             case GAME_SOUNDTRACK2 -> gameSoundTrack2.startAndLoop();
             case HIT -> hit.start();
+            case GAME_SOUNDTRACK3 -> gameSoundTrack3.startAndLoop();
+            case VICTORY -> victory.startAndLoop();
         }
     }
 
@@ -68,6 +79,8 @@ public class MusicPlayer {
             case SELECT -> select.stop();
             case GAME_SOUNDTRACK2 -> gameSoundTrack2.stop();
             case HIT -> hit.stop();
+            case GAME_SOUNDTRACK3 -> gameSoundTrack3.stop();
+            case VICTORY -> victory.stop();
         }
     }
 
@@ -79,6 +92,8 @@ public class MusicPlayer {
             case SELECT -> select.isPlaying();
             case GAME_SOUNDTRACK2 -> gameSoundTrack2.isPlaying();
             case HIT -> hit.isPlaying();
+            case GAME_SOUNDTRACK3 -> gameSoundTrack3.isPlaying();
+            case VICTORY -> victory.isPlaying();
         };
     }
 
@@ -89,6 +104,8 @@ public class MusicPlayer {
         select.stop();
         gameSoundTrack2.stop();
         hit.stop();
+        gameSoundTrack3.stop();
+        victory.stop();
     }
 
 

@@ -16,7 +16,7 @@ import java.io.IOException;
 public class GameOverController extends Controller<GameOver> {
     public GameOverController(GameOver gameOverScreen){
         super(gameOverScreen);
-        //music to add
+
     }
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {

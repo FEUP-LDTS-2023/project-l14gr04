@@ -3,14 +3,13 @@ package RushRoulette.controller.game;
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
-import RushRoulette.Model.Game.Elements.Enemy;
-import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.Model.PopUpScreens.GameOver;
+import RushRoulette.Model.PopUpScreens.Victory;
 import RushRoulette.States.GameOverState;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
-import RushRoulette.controller.Music.Music;
+import RushRoulette.States.VictoryState;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
@@ -55,20 +54,24 @@ public class ArenaController extends GameController {
 
             if(level == 30 && getModel().getGameTimer().getCurrentTime() == 0){
                 level=1;
-                getModel().getPlayer().resetScore();
                 getModel().getPlayer().resetLives();
-                MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
-                application.setState(new MenuState(new Menu()));
+                MusicPlayer.getInstance().stopAll();
+                MusicPlayer.getInstance().start(Sounds.VICTORY);
+                application.setState(new VictoryState(new Victory(getModel().getPlayer().getScore())));
+                getModel().getPlayer().resetScore();
             }
             else{
-                level+=1;
+                level+=27;
                 getModel().getPlayer().levelPoints();
-                System.out.println(level);
 
-
-                if(level == 15){
+                if(level == 10){
                     MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
+                }
+
+                else if (level == 20) {
+                    MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK2);
+                    MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK3);
                 }
 
 

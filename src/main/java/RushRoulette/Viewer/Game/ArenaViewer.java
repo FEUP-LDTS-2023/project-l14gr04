@@ -29,10 +29,10 @@ public class ArenaViewer extends Viewer<Arena> {
         gui.drawText(new Position(31,0),"Timer: " + getModel().getGameTimer().getCurrentTime(), "#FFD700");
 
         if(getModel().getArenaController().getLevel() < 10){
-            gui.drawText(new Position(15,20),"Level:0"+ getModel().getArenaController().getLevel(), "#FFD700");
+            gui.drawText(new Position(14,20),"Level:0"+ getModel().getArenaController().getLevel()+"/30", "#FFD700");
         }
         else {
-            gui.drawText(new Position(15,20),"Level:"+ getModel().getArenaController().getLevel(), "#FFD700");
+            gui.drawText(new Position(14,20),"Level:"+ getModel().getArenaController().getLevel()+"/30", "#FFD700");
         }
 
     }

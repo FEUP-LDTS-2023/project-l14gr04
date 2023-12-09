@@ -3,10 +3,11 @@ package RushRoulette.controller.menu;
 
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
+import RushRoulette.Model.Menu.Instructions;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
+import RushRoulette.States.InstructionsState;
 import RushRoulette.controller.Controller;
-import RushRoulette.controller.Music.Music;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
@@ -16,7 +17,6 @@ import java.io.IOException;
 public class MenuController extends Controller<Menu> {
     public MenuController(Menu menu){
         super(menu);
-        MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
     }
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException{
@@ -39,6 +39,10 @@ public class MenuController extends Controller<Menu> {
                     application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                     MusicPlayer.getInstance().stopAll();
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK);
+                }
+
+                if(getModel().instructionsSelected()){
+                    application.setState(new InstructionsState(new Instructions()));
                 }
 
 

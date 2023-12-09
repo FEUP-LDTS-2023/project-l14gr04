@@ -7,6 +7,8 @@ import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
 import RushRoulette.States.State;
+import RushRoulette.controller.Music.MusicPlayer;
+import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.LanternaGUI;
 
 import java.awt.*;
@@ -21,6 +23,7 @@ public class Application {
 
     public Application() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 20);
+        MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
         this.state = new MenuState(new Menu());
     }
 
