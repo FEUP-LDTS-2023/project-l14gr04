@@ -6,6 +6,9 @@ import RushRoulette.Model.Game.PowerUpTimer;
 public class Player extends Element {
     private int dead;
     private static int pontuationSystem=0;
+
+    private static int invulnerability=0;
+
     private static int score;
     private static int lives=3;
     private static PowerUpTimer powerUpTimer= new PowerUpTimer();
@@ -14,6 +17,13 @@ public class Player extends Element {
         this.dead = 0;
     }
 
+    public int getInvulnerability() {
+        return invulnerability;
+    }
+
+    public void setInvulnerability(int invulnerability) {
+        Player.invulnerability = invulnerability;
+    }
 
 
     public void isDead(){
@@ -92,5 +102,11 @@ public class Player extends Element {
 
     public int getPointsSystem() {
         return pontuationSystem;
+    }
+
+    public void invulnerable(){
+        invulnerability=1;
+        PowerUpTimer powerUpTimer=new PowerUpTimer();
+        setPowerUpTimer(powerUpTimer);
     }
 }

@@ -69,7 +69,7 @@ public class ArenaController extends GameController {
         else if(getModel().getGameTimer().getCurrentTime()==0){
 
 
-                level+=29;
+                level+=1;
                 getModel().getPlayer().levelPoints();
 
                 if(level == 10){
@@ -92,7 +92,7 @@ public class ArenaController extends GameController {
         }
     }
     public void handlePlayerPowerUpCollision(){
-        int nextType= type.nextInt(4);
+        int nextType= type.nextInt(5);
         switch (nextType){
             case 0:
                 getModel().getPlayer().isHit();//remove uma vida ao player
@@ -105,6 +105,8 @@ public class ArenaController extends GameController {
                 break;
             case 3:
                 getModel().getPlayer().dup();
+            case 4:
+                getModel().getPlayer().invulnerable();
         }
     }
 
