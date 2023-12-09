@@ -12,16 +12,17 @@ import java.io.IOException;
 
 public class EnemyController extends GameController {
     private long lastMovement;
+    private int enemySpeed;
 
     public EnemyController(Arena arena) {
         super(arena);
-
         this.lastMovement = 0;
+        this.enemySpeed=500;
     }
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > enemySpeed) {
             Position playerPosition = getModel().getPlayer().getPosition();
             for (Enemy enemy : getModel().getEnemies()){
                 Position enemyPosition = enemy.getPosition();
@@ -54,5 +55,9 @@ private Position chasePlayer(Position enemyPosition, Position playerPosition){
                 }
             }
         }
+    }
+
+    public void adjustEnemySpeed(int speedModifier){
+        enemySpeed+=speedModifier;
     }
 }
