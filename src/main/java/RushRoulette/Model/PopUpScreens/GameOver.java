@@ -1,8 +1,5 @@
 package RushRoulette.Model.PopUpScreens;
 
-import RushRoulette.Model.Game.Elements.Player;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
