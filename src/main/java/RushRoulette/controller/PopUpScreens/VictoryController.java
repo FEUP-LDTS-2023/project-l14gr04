@@ -33,6 +33,7 @@ public class VictoryController extends Controller<Victory> {
             case SELECT:
                 if(getModel().menuSelected()) {
                     MusicPlayer.getInstance().stopAll();
+                    MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
                     application.setState(new MenuState(new Menu()));
                 }
                 if(getModel().tryAgainSelected()) {

@@ -7,9 +7,11 @@ import RushRoulette.Model.Game.Elements.Enemy;
 import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.Model.PopUpScreens.GameOver;
+import RushRoulette.Model.PopUpScreens.Victory;
 import RushRoulette.States.GameOverState;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
+import RushRoulette.States.VictoryState;
 import RushRoulette.controller.Music.Music;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
@@ -54,20 +56,27 @@ public class ArenaController extends GameController {
             getModel().getPlayer().resetScore();
 
         }
-       else if(getModel().getGameTimer().getCurrentTime()==0){
 
-            if(level == 30 && getModel().getGameTimer().getCurrentTime() == 0){
-                level=1;
-                getModel().getPlayer().resetScore();
-                getModel().getPlayer().resetLives();
-                MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
-                application.setState(new MenuState(new Menu()));
-            }
-            else{
-                level+=1;
+        else if(level == 30 && getModel().getGameTimer().getCurrentTime() == 0){
+            level=1;
+            getModel().getPlayer().resetLives();
+            MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
+            MusicPlayer.getInstance().start(Sounds.VICTORY);
+            application.setState(new VictoryState(new Victory(getModel().getPlayer().getScore())));
+            getModel().getPlayer().resetScore();
+        }
+
+        else if(getModel().getGameTimer().getCurrentTime()==0){
+
+
+                level+=29;
                 getModel().getPlayer().levelPoints();
 
-                if(level == 15){
+                if(level == 10){
+                    MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
+                    MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
+                }
+                else if (level == 20) {
                     MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
                 }
@@ -75,7 +84,6 @@ public class ArenaController extends GameController {
 
                 application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
 
-            }
 
         }
         else {
