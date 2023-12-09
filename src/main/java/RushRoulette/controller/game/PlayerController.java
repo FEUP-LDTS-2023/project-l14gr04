@@ -22,7 +22,25 @@ public class PlayerController extends GameController {
                 getModel().getPlayer().isHit();
                 if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
             }
-            if(getModel().isCoin(position)){getModel().getPlayer().coinConsumed();}
+            if(getModel().getPlayer().getPowerUpTimer().getCurrentTime()==0) {
+                getModel().getPlayer().setPontuationSystem(0);
+            }
+            else {
+                if (getModel().isCoin(position)) {
+                    if (getModel().getPlayer().getPointsSystem()==0)
+                    {getModel().getPlayer().coinConsumed();
+                    } else if(getModel().getPlayer().getPointsSystem()==1) {
+                        getModel().getPlayer().HalfCoinConsumed();
+                    } else if (getModel().getPlayer().getPointsSystem()==2) {
+                        getModel().getPlayer().DoubleCoinConsumed();
+                    }
+                }
+            }
+
+            if(getModel().isPowerUp(position)){
+                getModel().getArenaController().handlePlayerPowerUpCollision();
+                if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
+            }
         }
     }
     @Override
