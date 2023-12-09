@@ -39,9 +39,5 @@ public class InstructionsViewer extends Viewer<Instructions> {
 
         gui.drawText(new Position(0,20), "=========================================","#0022CC" );
 
-
-
-
-
     }
 }
