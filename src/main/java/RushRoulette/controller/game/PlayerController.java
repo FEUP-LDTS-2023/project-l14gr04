@@ -27,17 +27,29 @@ public class PlayerController extends GameController {
                 getModel().getPlayer().setPontuationSystem(0);
                 getModel().getPlayer().setInvulnerability(0);
             }
-            else {
+
                 if (getModel().isCoin(position)) {
-                    if (getModel().getPlayer().getPointsSystem()==0)
+                    int type=getModel().getPlayer().getPointsSystem();
+                    switch(type){
+                        case 0:
+                            getModel().getPlayer().coinConsumed();
+                            break;
+                        case 1:
+                            getModel().getPlayer().HalfCoinConsumed();
+                            break;
+                        case 2:
+                            getModel().getPlayer().DoubleCoinConsumed();
+                            break;
+                    }
+                    /*if (getModel().getPlayer().getPointsSystem()==0)
                     {getModel().getPlayer().coinConsumed();
                     } else if(getModel().getPlayer().getPointsSystem()==1) {
                         getModel().getPlayer().HalfCoinConsumed();
                     } else if (getModel().getPlayer().getPointsSystem()==2) {
                         getModel().getPlayer().DoubleCoinConsumed();
-                    }
+                    }*/
                 }
-            }
+
 
             if(getModel().isPowerUp(position)){
                 getModel().getArenaController().handlePlayerPowerUpCollision();
