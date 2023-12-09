@@ -85,17 +85,24 @@ public class Player extends Element {
     }
 
     public void addLife(){
+        if(invulnerability == 1){
+            invulnerability=0;
+            MusicPlayer.getInstance().stop(Sounds.INVULNERABLE);
+        }
         MusicPlayer.getInstance().start(Sounds.HP);
-        invulnerability=0;
         pontuationSystem=0;
         lives+=1;
     }
 
     public void removeLife(){
+        if(invulnerability == 1){
+            invulnerability=0;
+            MusicPlayer.getInstance().stop(Sounds.INVULNERABLE);
+        }
         MusicPlayer.getInstance().start(Sounds.HIT);
-        invulnerability=0;
         pontuationSystem=0;
         lives-=1;
+
     }
 
 
@@ -113,7 +120,10 @@ public class Player extends Element {
 
 
     public void half(){
-        invulnerability=0;
+        if(invulnerability == 1){
+            invulnerability=0;
+            MusicPlayer.getInstance().stop(Sounds.INVULNERABLE);
+        }
         pontuationSystem=1;
         MusicPlayer.getInstance().start(Sounds.HALF_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
@@ -121,7 +131,10 @@ public class Player extends Element {
     }
 
     public void dup(){
-        invulnerability=0;
+        if(invulnerability == 1){
+            invulnerability=0;
+            MusicPlayer.getInstance().stop(Sounds.INVULNERABLE);
+        }
         pontuationSystem=2;
         MusicPlayer.getInstance().start(Sounds.DOUBLE_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
