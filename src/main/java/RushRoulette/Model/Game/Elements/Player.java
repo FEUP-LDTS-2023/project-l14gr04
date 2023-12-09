@@ -52,6 +52,11 @@ public class Player extends Element {
         lives = 3;
     }
 
+    public void resetPowerUps(){
+        invulnerability=0;
+        pontuationSystem=0;
+    }
+
     public void coinConsumed(){
         MusicPlayer.getInstance().start(Sounds.COIN);
         score+=2;

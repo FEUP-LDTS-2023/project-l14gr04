@@ -46,11 +46,13 @@ public class ArenaController extends GameController {
             level=1;
             getModel().getPlayer().resetScore();
             getModel().getPlayer().resetLives();
+            getModel().getPlayer().resetPowerUps();
             application.setState(new MenuState(new Menu()));
         }
         else if (getModel().getPlayer().getDead() == 1) {
             level=1;
             getModel().getPlayer().resetLives();
+            getModel().getPlayer().resetPowerUps();
             MusicPlayer.getInstance().stopAll();
             MusicPlayer.getInstance().start(Sounds.GAMEOVER);
             application.setState(new GameOverState(new GameOver(getModel().getPlayer().getScore())));
@@ -61,6 +63,7 @@ public class ArenaController extends GameController {
         else if(level == 30 && getModel().getGameTimer().getCurrentTime() == 0){
             level=1;
             getModel().getPlayer().resetLives();
+            getModel().getPlayer().resetPowerUps();
             MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
             MusicPlayer.getInstance().start(Sounds.VICTORY);
             application.setState(new VictoryState(new Victory(getModel().getPlayer().getScore())));
