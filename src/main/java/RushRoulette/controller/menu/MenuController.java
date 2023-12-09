@@ -8,7 +8,6 @@ import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
 import RushRoulette.States.InstructionsState;
 import RushRoulette.controller.Controller;
-import RushRoulette.controller.Music.Music;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;

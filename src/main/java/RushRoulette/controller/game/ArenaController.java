@@ -3,8 +3,6 @@ package RushRoulette.controller.game;
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
-import RushRoulette.Model.Game.Elements.Enemy;
-import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.Model.PopUpScreens.GameOver;
 import RushRoulette.Model.PopUpScreens.Victory;
@@ -12,7 +10,6 @@ import RushRoulette.States.GameOverState;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
 import RushRoulette.States.VictoryState;
-import RushRoulette.controller.Music.Music;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
@@ -64,7 +61,7 @@ public class ArenaController extends GameController {
                 getModel().getPlayer().resetScore();
             }
             else{
-                level+=29;
+                level+=27;
                 getModel().getPlayer().levelPoints();
 
                 if(level == 10){
