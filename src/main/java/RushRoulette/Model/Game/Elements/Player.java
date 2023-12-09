@@ -78,7 +78,16 @@ public class Player extends Element {
 
     public void addLife(){
         MusicPlayer.getInstance().start(Sounds.HP);
+        invulnerability=0;
+        pontuationSystem=0;
         lives+=1;
+    }
+
+    public void removeLife(){
+        MusicPlayer.getInstance().start(Sounds.HIT);
+        invulnerability=0;
+        pontuationSystem=0;
+        lives-=1;
     }
 
 
@@ -96,6 +105,7 @@ public class Player extends Element {
 
 
     public void half(){
+        invulnerability=0;
         pontuationSystem=1;
         MusicPlayer.getInstance().start(Sounds.HALF_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
@@ -103,6 +113,7 @@ public class Player extends Element {
     }
 
     public void dup(){
+        invulnerability=0;
         pontuationSystem=2;
         MusicPlayer.getInstance().start(Sounds.DOUBLE_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
@@ -115,6 +126,7 @@ public class Player extends Element {
     }
 
     public void invulnerable(){
+        pontuationSystem=0;
         invulnerability=1;
         MusicPlayer.getInstance().start(Sounds.INVULNERABLE);
         PowerUpTimer powerUpTimer=new PowerUpTimer();

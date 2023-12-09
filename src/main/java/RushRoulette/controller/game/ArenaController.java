@@ -95,7 +95,7 @@ public class ArenaController extends GameController {
         int nextType= type.nextInt(5);
         switch (nextType){
             case 0:
-                getModel().getPlayer().isHit();//remove uma vida ao player
+                getModel().getPlayer().removeLife();//remove uma vida ao player
                 break;
             case 1:
                 getModel().getPlayer().addLife();//adiciona uma vida ao player
