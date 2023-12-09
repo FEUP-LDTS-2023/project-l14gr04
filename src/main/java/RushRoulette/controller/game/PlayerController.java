@@ -19,7 +19,6 @@ public class PlayerController extends GameController {
             getModel().getPlayer().setPosition(position);
             if(getModel().isEnemy(position)){
                 if(getModel().getPlayer().getInvulnerability()==0) {
-                    MusicPlayer.getInstance().start(Sounds.HIT);
                     getModel().getPlayer().isHit();
                     if (getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
                 }

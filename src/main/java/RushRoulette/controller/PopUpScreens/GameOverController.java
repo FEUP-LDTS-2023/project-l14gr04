@@ -33,12 +33,13 @@ public class GameOverController extends Controller<GameOver> {
             case SELECT:
                 if(getModel().menuSelected()) {
                     MusicPlayer.getInstance().stopAll();
+                    MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
                     application.setState(new MenuState(new Menu()));
                 }
                 if(getModel().tryAgainSelected()) {
-                    application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                     MusicPlayer.getInstance().stopAll();
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK);
+                    application.setState(new GameState(new LoaderArenaBuilder(1).createArena()));
                 }
 
 

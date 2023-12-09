@@ -26,8 +26,6 @@ public class PowerUpTimer {
     }
 
 
-
-
     private void updateTimer(){
         currentTime--;
 

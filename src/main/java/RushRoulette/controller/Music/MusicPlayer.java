@@ -10,6 +10,12 @@ public class MusicPlayer {
     private Music victory;
     private Music select;
     private Music hit;
+    private Music hp;
+    private Music doubleMoney;
+    private Music halfMoney;
+    private Music newLevel;
+    private Music coin;
+    private Music invulnerable;
     private static MusicPlayer musicManager;
 
     private MusicPlayer() {
@@ -21,6 +27,13 @@ public class MusicPlayer {
         menuSoundTrack = new Music("MenuSoundTrack.wav");
         select = new Music("Select.wav");
         hit = new Music("Hit.wav");
+
+        hp = new Music("HP.wav");
+        doubleMoney = new Music("DoubleMoney.wav");
+        halfMoney = new Music("HalfMoney.wav");
+        newLevel = new Music("NewLVL.wav");
+        coin = new Music("Coin.wav");
+        invulnerable = new Music("Invulnerable.wav");
     }
 
     public static MusicPlayer getInstance() { //singleton PATTERN i think
@@ -56,6 +69,14 @@ public class MusicPlayer {
     public void setSelect(Music select){this.select = select;}
 
     public void setHit(Music hit){this.hit = hit;}
+    public void setCoin(Music coin) {this.coin = coin;}
+    public void setHP(Music hp){this.hp = hp;}
+    public void setNewLevel(Music newLevel){this.newLevel = newLevel;}
+    public void setDoubleMoney(Music doubleMoney){this.doubleMoney = doubleMoney;}
+    public void setHalfMoney(Music halfMoney){this.halfMoney = halfMoney;}
+    public void setInvulnerable(Music invulnerable) {
+        this.invulnerable = invulnerable;
+    }
 
 
     public void start(Sounds sound) {
@@ -68,6 +89,12 @@ public class MusicPlayer {
             case HIT -> hit.start();
             case GAME_SOUNDTRACK3 -> gameSoundTrack3.startAndLoop();
             case VICTORY -> victory.startAndLoop();
+            case HP -> hp.start();
+            case NEW_LVL -> newLevel.start();
+            case HALF_MONEY -> halfMoney.start();
+            case DOUBLE_MONEY -> doubleMoney.start();
+            case COIN -> coin.start();
+            case INVULNERABLE -> invulnerable.start();
         }
     }
 
@@ -81,20 +108,13 @@ public class MusicPlayer {
             case HIT -> hit.stop();
             case GAME_SOUNDTRACK3 -> gameSoundTrack3.stop();
             case VICTORY -> victory.stop();
+            case HP -> hp.stop();
+            case NEW_LVL -> newLevel.stop();
+            case DOUBLE_MONEY -> doubleMoney.stop();
+            case HALF_MONEY -> halfMoney.stop();
+            case COIN -> coin.stop();
+            case INVULNERABLE -> invulnerable.stop();
         }
-    }
-
-    public boolean isPlaying(Sounds sound) {
-        return switch (sound) {
-            case GAME_SOUNDTRACK -> gameSoundTrack.isPlaying();
-            case GAMEOVER -> gameOver.isPlaying();
-            case MENU_SOUNDTRACK -> menuSoundTrack.isPlaying();
-            case SELECT -> select.isPlaying();
-            case GAME_SOUNDTRACK2 -> gameSoundTrack2.isPlaying();
-            case HIT -> hit.isPlaying();
-            case GAME_SOUNDTRACK3 -> gameSoundTrack3.isPlaying();
-            case VICTORY -> victory.isPlaying();
-        };
     }
 
     public void stopAll() {
@@ -106,7 +126,14 @@ public class MusicPlayer {
         hit.stop();
         gameSoundTrack3.stop();
         victory.stop();
+        hp.stop();
+        doubleMoney.stop();
+        halfMoney.stop();
+        newLevel.stop();
+        coin.stop();
+        invulnerable.stop();
     }
+
 
 
 }

@@ -51,6 +51,7 @@ public class ArenaController extends GameController {
         else if (getModel().getPlayer().getDead() == 1) {
             level=1;
             getModel().getPlayer().resetLives();
+            MusicPlayer.getInstance().stopAll();
             MusicPlayer.getInstance().start(Sounds.GAMEOVER);
             application.setState(new GameOverState(new GameOver(getModel().getPlayer().getScore())));
             getModel().getPlayer().resetScore();
@@ -77,13 +78,12 @@ public class ArenaController extends GameController {
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
                 }
                 else if (level == 20) {
-                    MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK);
-                    MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK2);
+                    MusicPlayer.getInstance().stop(Sounds.GAME_SOUNDTRACK2);
+                    MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK3);
                 }
 
-
                 application.setState(new GameState(new LoaderArenaBuilder(level).createArena()));
-
+                MusicPlayer.getInstance().start(Sounds.NEW_LVL);
 
         }
         else {
@@ -95,7 +95,7 @@ public class ArenaController extends GameController {
         int nextType= type.nextInt(5);
         switch (nextType){
             case 0:
-                getModel().getPlayer().isHit();//remove uma vida ao player
+                getModel().getPlayer().removeLife();//remove uma vida ao player
                 break;
             case 1:
                 getModel().getPlayer().addLife();//adiciona uma vida ao player
@@ -105,8 +105,10 @@ public class ArenaController extends GameController {
                 break;
             case 3:
                 getModel().getPlayer().dup();
+                break;
             case 4:
                 getModel().getPlayer().invulnerable();
+                break;
         }
     }
 

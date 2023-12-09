@@ -2,6 +2,8 @@ package RushRoulette.Model.Game.Elements;
 
 import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Game.PowerUpTimer;
+import RushRoulette.controller.Music.MusicPlayer;
+import RushRoulette.controller.Music.Sounds;
 
 public class Player extends Element {
     private int dead;
@@ -38,34 +40,54 @@ public class Player extends Element {
         return score;
     }
 
-    public void setLives(int lives) { //for powerUps
-        Player.lives = lives;
-    }
-
     public int getLives() {
         return lives;
     }
 
     public void isHit(){
         lives -= 1;
+        MusicPlayer.getInstance().start(Sounds.HIT);
     }
     public void resetLives(){
         lives = 3;
     }
 
     public void coinConsumed(){
+        MusicPlayer.getInstance().start(Sounds.COIN);
         score+=2;
     }
 
+    public void DoubleCoinConsumed(){
+        MusicPlayer.getInstance().start(Sounds.COIN);
+        score+=4;
+    }
+
+    public void HalfCoinConsumed(){
+        MusicPlayer.getInstance().start(Sounds.COIN);
+        score+=1;
+    }
+
     public void levelPoints(){
-        score+=10;}
+
+        score+=10;
+    }
 
     public void resetScore(){
         score=0;
     }
 
     public void addLife(){
+        MusicPlayer.getInstance().start(Sounds.HP);
+        invulnerability=0;
+        pontuationSystem=0;
         lives+=1;
+    }
+
+    public void removeLife(){
+        MusicPlayer.getInstance().start(Sounds.HIT);
+        invulnerability=0;
+        pontuationSystem=0;
+        lives-=1;
     }
 
 
@@ -83,29 +105,30 @@ public class Player extends Element {
 
 
     public void half(){
+        invulnerability=0;
         pontuationSystem=1;
+        MusicPlayer.getInstance().start(Sounds.HALF_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
         setPowerUpTimer(powerUpTimer);
     }
 
     public void dup(){
+        invulnerability=0;
         pontuationSystem=2;
+        MusicPlayer.getInstance().start(Sounds.DOUBLE_MONEY);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
         setPowerUpTimer(powerUpTimer);
     }
 
-    public void DoubleCoinConsumed(){score+=4;}
-
-    public void HalfCoinConsumed(){
-        score+=1;
-    }
 
     public int getPointsSystem() {
         return pontuationSystem;
     }
 
     public void invulnerable(){
+        pontuationSystem=0;
         invulnerability=1;
+        MusicPlayer.getInstance().start(Sounds.INVULNERABLE);
         PowerUpTimer powerUpTimer=new PowerUpTimer();
         setPowerUpTimer(powerUpTimer);
     }
