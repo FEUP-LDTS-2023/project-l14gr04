@@ -1,10 +1,6 @@
 package RushRoulette;
 
-import RushRoulette.Model.Game.Arena.Arena;
-import RushRoulette.Model.Game.Arena.ArenaBuilder;
-import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Menu.Menu;
-import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
 import RushRoulette.States.State;
 import RushRoulette.controller.Music.MusicPlayer;
@@ -15,8 +11,6 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-// Press Shift twice to open the Search Everywhere dialog and type show whitespaces,
-// then press Enter. You can now see whitespace characters in your code.
 public class Application {
     private final LanternaGUI gui;
     private State state;

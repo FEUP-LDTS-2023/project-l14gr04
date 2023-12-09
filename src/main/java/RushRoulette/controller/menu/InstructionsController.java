@@ -10,6 +10,7 @@ import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class InstructionsController extends Controller<Instructions> {
     public InstructionsController(Instructions instructions){
@@ -18,18 +19,9 @@ public class InstructionsController extends Controller<Instructions> {
     }
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        switch(action){
-            case RIGHT:
-                MusicPlayer.getInstance().start(Sounds.SELECT);
-                break;
-            case LEFT:
-                MusicPlayer.getInstance().stop(Sounds.SELECT);
-                break;
-            case SELECT:
-                application.setState(new MenuState(new Menu()));
-                break;
-
-
+        if (Objects.requireNonNull(action) == GUI.ACTION.SELECT) {
+            MusicPlayer.getInstance().start(Sounds.SELECT);
+            application.setState(new MenuState(new Menu()));
         }
     }
 }

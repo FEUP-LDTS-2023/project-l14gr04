@@ -38,9 +38,9 @@ public class ArenaViewer extends Viewer<Arena> {
 
         gui.drawText(new Position(0, 0), "Score: " + getModel().getPlayer().getScore() , "#FFD700");
 
-        gui.drawText(new Position(10, 0), "HP:" + (getModel().getPlayer().getLives()) , "#FF0000");
+        gui.drawText(new Position(11, 0), "HP:" + (getModel().getPlayer().getLives()) , "#FF0000");
 
-        gui.drawText(new Position(31,0),"Timer: " + getModel().getGameTimer().getCurrentTime(), "#FFD700");
+        gui.drawText(new Position(32,0),"Timer:" + getModel().getGameTimer().getCurrentTime(), "#FFD700");
 
         if(getModel().getArenaController().getLevel() < 10){
             gui.drawText(new Position(14,20),"Level:0"+ getModel().getArenaController().getLevel()+"/30", "#FFD700");
@@ -49,7 +49,7 @@ public class ArenaViewer extends Viewer<Arena> {
             gui.drawText(new Position(14,20),"Level:"+ getModel().getArenaController().getLevel()+"/30", "#FFD700");
         }
 
-        gui.drawText(new Position(15,0),getType(),"#FF0000");
+        gui.drawText(new Position(16,0),getType(),"#00FFFF");
 
     }
 
