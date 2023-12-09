@@ -9,8 +9,20 @@ import RushRoulette.gui.GUI;
 import java.util.List;
 
 public class ArenaViewer extends Viewer<Arena> {
+    public String type;
     public ArenaViewer(Arena arena) {
         super(arena);
+    }
+
+    public String getType(){
+        if (getModel().getPlayer().getPointsSystem()==1){
+            type="Half Points";
+        } else if (getModel().getPlayer().getPointsSystem()==2) {
+            type="Double Points";
+        } else if (getModel().getPlayer().getPointsSystem()==0) {
+            type="Normal Points";
+        }
+        return type;
     }
 
     @Override
@@ -34,6 +46,8 @@ public class ArenaViewer extends Viewer<Arena> {
         else {
             gui.drawText(new Position(15,20),"Level:"+ getModel().getArenaController().getLevel(), "#FFD700");
         }
+
+        gui.drawText(new Position(17,0),getType(),"#FF0000");
 
     }
 

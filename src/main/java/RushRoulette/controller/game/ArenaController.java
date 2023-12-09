@@ -84,16 +84,19 @@ public class ArenaController extends GameController {
         }
     }
     public void handlePlayerPowerUpCollision(){
-        int nextType= type.nextInt(2);
+        int nextType= type.nextInt(4);
         switch (nextType){
             case 0:
-                getModel().getPlayer().isHit();
+                getModel().getPlayer().isHit();//remove uma vida ao player
                 break;
-                //remove uma vida ao player
             case 1:
-                getModel().getPlayer().addLife();
+                getModel().getPlayer().addLife();//adiciona uma vida ao player
                 break;
-                //adiciona uma vida ao player
+            case 2:
+                getModel().getPlayer().half();
+                break;
+            case 3:
+                getModel().getPlayer().dup();
         }
     }
 
