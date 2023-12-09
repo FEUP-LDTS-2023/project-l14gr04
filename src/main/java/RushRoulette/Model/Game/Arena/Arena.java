@@ -24,6 +24,7 @@ public class Arena {
 
 
     public Arena(int width, int height) {
+        this.arenaController=new ArenaController(this);
         this.width = width;
         this.height = height;
     }
@@ -104,6 +105,16 @@ public class Arena {
         for (Coin coin : coins) {
             if (coin.getPosition().equals(position)) {
                 coins.remove(coin);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isPowerUp(Position position) {
+        for (PowerUp powerUp : powerUps) {
+            if (powerUp.getPosition().equals(position)) {
+                powerUps.remove(powerUp);
                 return true;
             }
         }

@@ -18,11 +18,32 @@ public class PlayerController extends GameController {
         if(getModel().isEmpty(position)){
             getModel().getPlayer().setPosition(position);
             if(getModel().isEnemy(position)){
-                MusicPlayer.getInstance().start(Sounds.HIT);
-                getModel().getPlayer().isHit();
+                if(getModel().getPlayer().getInvulnerability()==0) {
+                    MusicPlayer.getInstance().start(Sounds.HIT);
+                    getModel().getPlayer().isHit();
+                    if (getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
+                }
+            }
+            if(getModel().getPlayer().getPowerUpTimer().getCurrentTime()==0) {
+                getModel().getPlayer().setPontuationSystem(0);
+                getModel().getPlayer().setInvulnerability(0);
+            }
+            else {
+                if (getModel().isCoin(position)) {
+                    if (getModel().getPlayer().getPointsSystem()==0)
+                    {getModel().getPlayer().coinConsumed();
+                    } else if(getModel().getPlayer().getPointsSystem()==1) {
+                        getModel().getPlayer().HalfCoinConsumed();
+                    } else if (getModel().getPlayer().getPointsSystem()==2) {
+                        getModel().getPlayer().DoubleCoinConsumed();
+                    }
+                }
+            }
+
+            if(getModel().isPowerUp(position)){
+                getModel().getArenaController().handlePlayerPowerUpCollision();
                 if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
             }
-            if(getModel().isCoin(position)){getModel().getPlayer().coinConsumed();}
         }
     }
     @Override

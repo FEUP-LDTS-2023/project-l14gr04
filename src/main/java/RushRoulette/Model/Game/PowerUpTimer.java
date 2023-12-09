@@ -6,22 +6,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameTimer {
-    private int initialTime=10;
+public class PowerUpTimer {
+    private int initialTime=5;
     private int currentTime;
     private Timer timer;
 
 
 
-    public GameTimer(){
+    public PowerUpTimer(){
         currentTime=initialTime;
 
-         timer=new Timer(1000, new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 updateTimer();
-             }
-         });
+        timer=new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateTimer();
+            }
+        });
         timer.start();
     }
 
@@ -32,8 +32,8 @@ public class GameTimer {
         currentTime--;
 
         if(currentTime<0){
+            timer.stop();
             currentTime=initialTime;
-
         }
     }
 

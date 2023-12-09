@@ -47,10 +47,12 @@ private Position chasePlayer(Position enemyPosition, Position playerPosition){
         if (getModel().isEmpty(position) && getModel().isEnemyFree(position)) {
             enemy.setPosition(position);
 
-            if (getModel().getPlayer().getPosition().equals(position)){
-                MusicPlayer.getInstance().start(Sounds.HIT);
-                getModel().getPlayer().isHit();
-                if(getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
+            if (getModel().getPlayer().getPosition().equals(position)) {
+                if (getModel().getPlayer().getInvulnerability() == 0) {
+                    MusicPlayer.getInstance().start(Sounds.HIT);
+                    getModel().getPlayer().isHit();
+                    if (getModel().getPlayer().getLives() == 0) getModel().getPlayer().isDead();
+                }
             }
         }
     }

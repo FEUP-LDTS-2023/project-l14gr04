@@ -1,13 +1,30 @@
 package RushRoulette.Model.Game.Elements;
 
+import RushRoulette.Model.Game.GameTimer;
+import RushRoulette.Model.Game.PowerUpTimer;
+
 public class Player extends Element {
     private int dead;
+    private static int pontuationSystem=0;
+
+    private static int invulnerability=0;
+
     private static int score;
-    private static int lives = 3;
+    private static int lives=3;
+    private static PowerUpTimer powerUpTimer= new PowerUpTimer();
     public Player(int x, int y){
         super(x, y);
         this.dead = 0;
     }
+
+    public int getInvulnerability() {
+        return invulnerability;
+    }
+
+    public void setInvulnerability(int invulnerability) {
+        Player.invulnerability = invulnerability;
+    }
+
 
     public void isDead(){
         this.dead=1;
@@ -22,7 +39,7 @@ public class Player extends Element {
     }
 
     public void setLives(int lives) { //for powerUps
-        this.lives = lives;
+        Player.lives = lives;
     }
 
     public int getLives() {
@@ -30,19 +47,66 @@ public class Player extends Element {
     }
 
     public void isHit(){
-        this.lives -= 1;
+        lives -= 1;
     }
     public void resetLives(){
-        this.lives = 3;
+        lives = 3;
     }
 
     public void coinConsumed(){
-        this.score+=1;
+        score+=2;
     }
 
-    public void levelPoints(){this.score+=10;}
+    public void levelPoints(){
+        score+=10;}
 
     public void resetScore(){
-        this.score=0;
+        score=0;
+    }
+
+    public void addLife(){
+        lives+=1;
+    }
+
+
+    public PowerUpTimer getPowerUpTimer() {
+        return powerUpTimer;
+    }
+
+    public void setPowerUpTimer(PowerUpTimer powerUpTimer) {
+        this.powerUpTimer = powerUpTimer;
+    }
+
+    public void setPontuationSystem(int pontuationSystem) {
+        this.pontuationSystem=pontuationSystem;
+    }
+
+
+    public void half(){
+        pontuationSystem=1;
+        PowerUpTimer powerUpTimer=new PowerUpTimer();
+        setPowerUpTimer(powerUpTimer);
+    }
+
+    public void dup(){
+        pontuationSystem=2;
+        PowerUpTimer powerUpTimer=new PowerUpTimer();
+        setPowerUpTimer(powerUpTimer);
+    }
+
+    public void DoubleCoinConsumed(){score+=4;}
+
+    public void HalfCoinConsumed(){
+        score+=1;
+    }
+
+    public int getPointsSystem() {
+        return pontuationSystem;
+    }
+
+    public void invulnerable(){
+        invulnerability=1;
+        PowerUpTimer powerUpTimer=new PowerUpTimer();
+        setPowerUpTimer(powerUpTimer);
     }
 }
