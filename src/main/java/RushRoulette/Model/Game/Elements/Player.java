@@ -58,16 +58,19 @@ public class Player extends Element {
     }
 
     public void coinConsumed(){
+        MusicPlayer.getInstance().stop(Sounds.COIN);
         MusicPlayer.getInstance().start(Sounds.COIN);
         score+=2;
     }
 
     public void DoubleCoinConsumed(){
+        MusicPlayer.getInstance().stop(Sounds.COIN);
         MusicPlayer.getInstance().start(Sounds.COIN);
         score+=4;
     }
 
     public void HalfCoinConsumed(){
+        MusicPlayer.getInstance().stop(Sounds.COIN);
         MusicPlayer.getInstance().start(Sounds.COIN);
         score+=1;
     }
