@@ -4,9 +4,11 @@ package RushRoulette.controller.menu;
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Menu.Instructions;
+import RushRoulette.Model.Menu.LeaderBoard;
 import RushRoulette.Model.Menu.Menu;
 import RushRoulette.States.GameState;
 import RushRoulette.States.InstructionsState;
+import RushRoulette.States.LeaderBoardState;
 import RushRoulette.controller.Controller;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
@@ -43,6 +45,10 @@ public class MenuController extends Controller<Menu> {
 
                 if(getModel().instructionsSelected()){
                     application.setState(new InstructionsState(new Instructions()));
+                }
+
+                if(getModel().leaderBoardSelected()){
+                    application.setState(new LeaderBoardState(new LeaderBoard()));
                 }
 
 
