@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GameTimer {
     private int initialTime=10;
-    private int currentTime;
+    private int currentTime ;
     private Timer timer;
 
 
