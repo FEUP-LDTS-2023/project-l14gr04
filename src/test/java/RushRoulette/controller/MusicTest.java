@@ -17,7 +17,7 @@ public class MusicTest extends Assertions {
 
     @BeforeEach
     void init() {
-        String path = "/Music/GameSoundTrack.wav";
+        String path = "/GameSoundTrack.wav";
         music = new Music(path);
         clipMock = Mockito.mock(Clip.class);
         music.setMusic(clipMock);
@@ -25,7 +25,7 @@ public class MusicTest extends Assertions {
 
     @Test
     void createAndLoadSound() {
-        String path = "/Music/GameSoundTrack.wav";
+        String path = "/GameSoundTrack.wav";
         music = new Music(path);
         FloatControl floatControl = (FloatControl) music.getMusic().getControl(FloatControl.Type.MASTER_GAIN);
         assertNotNull(music);
