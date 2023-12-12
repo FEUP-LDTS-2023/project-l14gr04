@@ -1,10 +1,8 @@
 package RushRoulette.viewer;
 
 import RushRoulette.Model.Game.Arena.Arena;
-import RushRoulette.Model.Game.Elements.Coin;
-import RushRoulette.Model.Game.Elements.Enemy;
-import RushRoulette.Model.Game.Elements.Player;
-import RushRoulette.Model.Game.Elements.PowerUp;
+import RushRoulette.Model.Game.Elements.*;
+import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
 import RushRoulette.Viewer.Game.ArenaViewer;
 import RushRoulette.gui.GUI;
@@ -27,10 +25,12 @@ public class ArenaViewerTest {
         gui = Mockito.mock(GUI.class);
         viewer = new ArenaViewer(arena);
 
+        arena.setGameTimer(new GameTimer());
         arena.setEnemies(Arrays.asList(new Enemy(4, 5), new Enemy(5, 6)));
         arena.setPlayer(new Player(5, 8));
         arena.setCoins(Arrays.asList(new Coin(3,3)));
         arena.setPowerUps(Arrays.asList(new PowerUp(4,6)));
+        arena.setWalls(Arrays.asList(new Wall(1,1),new Wall(2,3)));
     }
 
     @Test
