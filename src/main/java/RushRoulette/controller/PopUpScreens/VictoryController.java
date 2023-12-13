@@ -3,9 +3,11 @@ package RushRoulette.controller.PopUpScreens;
 import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.LoaderArenaBuilder;
 import RushRoulette.Model.Menu.Menu;
+import RushRoulette.Model.PopUpScreens.SaveScore;
 import RushRoulette.Model.PopUpScreens.Victory;
 import RushRoulette.States.GameState;
 import RushRoulette.States.MenuState;
+import RushRoulette.States.SaveScoreState;
 import RushRoulette.controller.Controller;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;
@@ -23,11 +25,11 @@ public class VictoryController extends Controller<Victory> {
 
         switch(action){
             case RIGHT:
-                getModel().previousEntry();
+                getModel().nextEntry();
                 MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case LEFT:
-                getModel().nextEntry();
+                getModel().previousEntry();
                 MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case SELECT:
@@ -42,6 +44,9 @@ public class VictoryController extends Controller<Victory> {
                     MusicPlayer.getInstance().start(Sounds.GAME_SOUNDTRACK);
                 }
 
+                if(getModel().saveSelected()){
+                    application.setState((new SaveScoreState(new SaveScore(getModel().getScore()))));
+                }
 
         }
     }

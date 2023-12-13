@@ -23,7 +23,7 @@ public class InstructionsViewer extends Viewer<Instructions> {
         gui.drawText(new Position(0,8), "||                                    ||","#0022CC" );
         gui.drawText(new Position(0,9), "||      ---IN GAME CONTROLS---        ||","#0022CC" );
         gui.drawText(new Position(0,10), "||                                    ||","#0022CC" );
-        gui.drawText(new Position(0,11), "||       MENU  -->    Q               ||","#0022CC" );
+        gui.drawText(new Position(0,11), "||       QUIT  -->    Q               ||","#0022CC" );
         gui.drawText(new Position(0,12), "||                                    ||","#0022CC" );
         gui.drawText(new Position(0,13), "||        UP   --> ARROW_UP           ||","#0022CC" );
         gui.drawText(new Position(0,14), "||       DOWN  --> ARROW_DOWN         ||","#0022CC" );
