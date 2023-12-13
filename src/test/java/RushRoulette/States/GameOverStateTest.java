@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class GameOverStateTest {
     @Test
-    public void testConstructor2() {
+    public void testConstructor() {
         GameOver gameOverModel = new GameOver(100);
         GameOverState gameOverState = new GameOverState(gameOverModel);
 
