@@ -30,9 +30,8 @@ public class GameTimerTest {
             assertTrue(gameTimer.getCurrentTime() < 10 && gameTimer.getCurrentTime() >= 0);
 
             // Reset the timer
-            int initialTime = gameTimer.getCurrentTime();
             gameTimer.resetTimer();
-            assertEquals(initialTime, gameTimer.getCurrentTime());
+            assertEquals(10, gameTimer.getCurrentTime());
         }
     }
 
