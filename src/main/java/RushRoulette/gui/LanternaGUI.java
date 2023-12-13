@@ -33,7 +33,7 @@ public class LanternaGUI implements GUI{
         this.screen = createScreen(terminal);
     }
 
-    private Screen createScreen(Terminal terminal) throws IOException {
+    public Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
 
@@ -43,7 +43,7 @@ public class LanternaGUI implements GUI{
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+    public Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
@@ -52,7 +52,7 @@ public class LanternaGUI implements GUI{
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
-    private AWTTerminalFontConfiguration loadGameFont() throws URISyntaxException, FontFormatException, IOException {
+    public AWTTerminalFontConfiguration loadGameFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/gameFont.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
@@ -144,4 +144,8 @@ public class LanternaGUI implements GUI{
     public void close() throws IOException {
         screen.close();
     }
+
+
+
+
 }
