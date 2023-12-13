@@ -36,7 +36,8 @@ public class MenuViewer extends Viewer<Menu> {
 
         gui.drawText(new Position(17,9), ">" + getModel().getEntry(0),  getModel().isSelected(0)? "#FFD700" : "#8B0000" );
         gui.drawText(new Position(13,10),">" + getModel().getEntry(1),  getModel().isSelected(1)? "#FFD700" : "#8B0000" );
-        gui.drawText(new Position(17,11),">" + getModel().getEntry(2),  getModel().isSelected(2)? "#FFD700" : "#8B0000" );
+        gui.drawText(new Position(13,11),">" + getModel().getEntry(2),  getModel().isSelected(2)? "#FFD700" : "#8B0000" );
+        gui.drawText(new Position(17,12),">" + getModel().getEntry(3),  getModel().isSelected(3)? "#FFD700" : "#8B0000" );
 
     }
 }

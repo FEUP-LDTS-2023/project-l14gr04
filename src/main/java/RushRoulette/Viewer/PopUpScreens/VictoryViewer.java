@@ -36,12 +36,12 @@ public class VictoryViewer extends Viewer<Victory> {
         gui.drawText(new Position(0, 20), "=========================================", "#004600");
 
 
-        gui.drawText(new Position(12,7), "YOU WON!!", "#004600" );
+        gui.drawText(new Position(7,7), "Flawless victory!", "#004600" );
 
 
         for(int i=0; i<getModel().getNumberEntries();i++){
             gui.drawText(
-                    new Position(11 + 10*i, 11), ">" +
+                    new Position( 7 + 10*i, 11), ">" +
                     getModel().getEntry(i),
                     getModel().isSelected(i)? "#FFD700" : "#004600");
         }

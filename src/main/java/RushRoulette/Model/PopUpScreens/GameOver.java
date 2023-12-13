@@ -9,7 +9,7 @@ public class GameOver {
     private int Entry = 0;
 
     public GameOver(int score){
-        this.entries = Arrays.asList("Retry", "Menu");
+        this.entries = Arrays.asList("Retry", "Save", "Quit");
         this.score = score;
     }
 
@@ -37,8 +37,11 @@ public class GameOver {
     public boolean tryAgainSelected() {
         return isSelected(0);
     }
-    public boolean menuSelected() {
+    public boolean saveSelected() {
         return isSelected(1);
+    }
+    public boolean menuSelected() {
+        return isSelected(2);
     }
     public int getNumberEntries(){return this.entries.size();}
     public int getScore() {

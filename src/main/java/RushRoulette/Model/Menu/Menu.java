@@ -8,7 +8,7 @@ public class Menu {
     private int Entry=0;
 
     public Menu(){
-        this.entries= Arrays.asList("Play","Instructions", "Exit");
+        this.entries= Arrays.asList("Play","Leaderboard","Instructions", "Exit");
     }
 
     public void nextEntry(){
@@ -34,11 +34,16 @@ public class Menu {
     public boolean playSelected(){
         return isSelected(0);
     }
-    public boolean instructionsSelected(){
+    public boolean leaderBoardSelected(){
         return isSelected(1);
     }
-    public boolean exitSelected(){
+    public boolean instructionsSelected(){
         return isSelected(2);
     }
-    public int getNumberEntries(){return this.entries.size();}
+    public boolean exitSelected(){
+        return isSelected(3);
+    }
+
+
+    //public int getNumberEntries(){return this.entries.size();}
 }
