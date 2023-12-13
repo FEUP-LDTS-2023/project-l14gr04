@@ -1,8 +1,5 @@
 package RushRoulette.Model.PopUpScreens;
 
-
-import RushRoulette.Model.PopUpScreens.GameOver;
-import RushRoulette.States.GameOverState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,11 +11,11 @@ public class GameOverTest {
         GameOver gameOver = new GameOver(initialScore);
 
         assertEquals(initialScore, gameOver.getScore());
-        assertEquals(2, gameOver.getNumberEntries()); // Assuming there are two default entries: Retry and Menu
-        assertTrue(gameOver.tryAgainSelected()); // By default, the first entry (Retry) should be selected
+        assertEquals(3, gameOver.getNumberEntries());
+        assertTrue(gameOver.tryAgainSelected());
     }
 
-    // Test case for checking if the nextEntry method updates the selected entry correctly
+
     @Test
     public void testNextEntry() {
         GameOver gameOver = new GameOver(100);
@@ -26,13 +23,13 @@ public class GameOverTest {
         assertTrue(gameOver.tryAgainSelected());
 
         gameOver.nextEntry();
-        assertTrue(gameOver.menuSelected());
+        assertTrue(gameOver.saveSelected());
 
         gameOver.nextEntry();
-        assertTrue(gameOver.tryAgainSelected());
+        assertTrue(gameOver.menuSelected());
     }
 
-    // Test case for checking if the previousEntry method updates the selected entry correctly
+
     @Test
     public void testPreviousEntry() {
         GameOver gameOver = new GameOver(100);
@@ -43,7 +40,7 @@ public class GameOverTest {
         assertTrue(gameOver.menuSelected());
 
         gameOver.previousEntry();
-        assertTrue(gameOver.tryAgainSelected());
+        assertTrue(gameOver.saveSelected());
     }
 
 }
