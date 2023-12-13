@@ -4,8 +4,6 @@ import RushRoulette.Application;
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Elements.Enemy;
 import RushRoulette.Model.Position;
-import RushRoulette.controller.Music.MusicPlayer;
-import RushRoulette.controller.Music.Sounds;
 import RushRoulette.gui.GUI;
 
 import java.io.IOException;

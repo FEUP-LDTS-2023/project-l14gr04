@@ -13,7 +13,7 @@ public class LeaderBoardViewer extends Viewer<LeaderBoard> {
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
 
         //draw from text file
         int lineNumber = 0;

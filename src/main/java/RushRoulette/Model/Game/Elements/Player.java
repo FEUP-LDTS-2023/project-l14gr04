@@ -1,6 +1,5 @@
 package RushRoulette.Model.Game.Elements;
 
-import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Game.PowerUpTimer;
 import RushRoulette.controller.Music.MusicPlayer;
 import RushRoulette.controller.Music.Sounds;

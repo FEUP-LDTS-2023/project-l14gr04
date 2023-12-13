@@ -1,13 +1,10 @@
 package RushRoulette.Model.Game.Arena;
 
+import RushRoulette.Model.Game.*;
 import RushRoulette.Model.Game.Elements.*;
-import RushRoulette.Model.Game.GameTimer;
-import RushRoulette.Model.Position;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public abstract class ArenaBuilder {

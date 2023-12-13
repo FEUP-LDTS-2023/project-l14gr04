@@ -1,7 +1,6 @@
 package RushRoulette.Model.Game.Arena;
 
 import RushRoulette.Model.Game.Elements.*;
-import RushRoulette.Model.Game.GameTimer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,8 +1,8 @@
 package RushRoulette.viewer;
 
+import RushRoulette.Model.Game.*;
 import RushRoulette.Model.Game.Arena.Arena;
 import RushRoulette.Model.Game.Elements.*;
-import RushRoulette.Model.Game.GameTimer;
 import RushRoulette.Model.Position;
 import RushRoulette.Viewer.Game.ArenaViewer;
 import RushRoulette.gui.GUI;

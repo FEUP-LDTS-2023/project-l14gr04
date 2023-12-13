@@ -1,10 +1,8 @@
 package RushRoulette.Model.Game.Elements;
 
-import RushRoulette.Model.Game.Arena.Arena;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class PlayerTest {
     Player player;
