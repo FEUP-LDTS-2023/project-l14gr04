@@ -44,6 +44,7 @@ public class Menu {
         return isSelected(3);
     }
 
-
-    //public int getNumberEntries(){return this.entries.size();}
+    public List<String> getEntries() {
+        return entries;
+    }
 }
