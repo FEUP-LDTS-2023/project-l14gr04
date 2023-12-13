@@ -3,6 +3,7 @@ package RushRoulette.controller;
 import RushRoulette.controller.Music.Sounds;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import RushRoulette.controller.Music.MusicPlayer;
@@ -20,6 +21,13 @@ public class MusicPlayerTest {
     Music selectMock = Mockito.mock(Music.class);
     Music menuSoundTrackMock = Mockito.mock(Music.class);
     Music hitMock = Mockito.mock(Music.class);
+    Music hpMock = Mockito.mock(Music.class);
+    Music newLevelMock = Mockito.mock(Music.class);
+    Music doubleMoneyMock = Mockito.mock(Music.class);
+    Music halfMoneyMock = Mockito.mock(Music.class);
+    Music invulnerableMock = Mockito.mock(Music.class);
+    Music coinMock = Mockito.mock(Music.class);
+    Music victoryMock = Mockito.mock(Music.class);
 
     MusicPlayer musicPlayerSpy;
     @BeforeEach
@@ -36,9 +44,23 @@ public class MusicPlayerTest {
 
         musicPlayer.setGameSoundTrack2(gameSoundTrack2Mock);
 
+        musicPlayer.setGameSoundTrack3(gameSoundTrack3Mock);
+
         musicPlayer.setHit(hitMock);
 
-        musicPlayer.setGameSoundTrack3(gameSoundTrack3Mock);
+        musicPlayer.setHP(hpMock);
+
+        musicPlayer.setNewLevel(newLevelMock);
+
+        musicPlayer.setDoubleMoney(doubleMoneyMock);
+
+        musicPlayer.setHalfMoney(halfMoneyMock);
+
+        musicPlayer.setInvulnerable(invulnerableMock);
+
+        musicPlayer.setCoin(coinMock);
+
+        musicPlayer.setVictory(victoryMock);
 
         musicPlayerSpy = Mockito.spy(musicPlayer);
     }
@@ -82,6 +104,36 @@ public class MusicPlayerTest {
         musicPlayerSpy.start(Sounds.HIT);
         Mockito.verify(hitMock, Mockito.times(1)).start();
     }
+    @Test
+    void startHP(){
+        musicPlayerSpy.start(Sounds.HP);
+        Mockito.verify(hpMock, Mockito.times(1)).start();
+    }    @Test
+    void startNewLevel(){
+        musicPlayerSpy.start(Sounds.NEW_LVL);
+        Mockito.verify(newLevelMock, Mockito.times(1)).start();
+    }    @Test
+    void starDoubleMoney(){
+        musicPlayerSpy.start(Sounds.DOUBLE_MONEY);
+        Mockito.verify(doubleMoneyMock, Mockito.times(1)).start();
+    }    @Test
+    void startHalfMoney(){
+        musicPlayerSpy.start(Sounds.HALF_MONEY);
+        Mockito.verify(halfMoneyMock, Mockito.times(1)).start();
+    }
+    @Test
+    void startInvulnerable(){
+        musicPlayerSpy.start(Sounds.INVULNERABLE);
+        Mockito.verify(invulnerableMock, Mockito.times(1)).start();
+    }    @Test
+    void startCoin(){
+        musicPlayerSpy.start(Sounds.COIN);
+        Mockito.verify(coinMock, Mockito.times(1)).start();
+    }    @Test
+    void startVictory(){
+        musicPlayerSpy.start(Sounds.VICTORY);
+        Mockito.verify(victoryMock, Mockito.times(1)).startAndLoop();
+    }
 
     //--------------STOP-----------
     @Test
@@ -121,6 +173,36 @@ public class MusicPlayerTest {
         musicPlayerSpy.stop(Sounds.HIT);
         Mockito.verify(hitMock, Mockito.times(1)).stop();
     }
+    @Test
+    void stopHP(){
+        musicPlayerSpy.stop(Sounds.HP);
+        Mockito.verify(hpMock, Mockito.times(1)).stop();
+    }    @Test
+    void stopNewLevel(){
+        musicPlayerSpy.stop(Sounds.NEW_LVL);
+        Mockito.verify(newLevelMock, Mockito.times(1)).stop();
+    }    @Test
+    void stopDoubleMoney(){
+        musicPlayerSpy.stop(Sounds.DOUBLE_MONEY);
+        Mockito.verify(doubleMoneyMock, Mockito.times(1)).stop();
+    }    @Test
+    void stopHalfMoney(){
+        musicPlayerSpy.stop(Sounds.HALF_MONEY);
+        Mockito.verify(halfMoneyMock, Mockito.times(1)).stop();
+    }    @Test
+    void stopInvulnerable(){
+        musicPlayerSpy.stop(Sounds.INVULNERABLE);
+        Mockito.verify(invulnerableMock, Mockito.times(1)).stop();
+    }
+    @Test
+    void stopCoin(){
+        musicPlayerSpy.stop(Sounds.COIN);
+        Mockito.verify(coinMock, Mockito.times(1)).stop();
+    }    @Test
+    void stopVictory(){
+        musicPlayerSpy.stop(Sounds.VICTORY);
+        Mockito.verify(victoryMock, Mockito.times(1)).stop();
+    }
 
     //--------------STOP_ALL-----------
 
@@ -134,6 +216,13 @@ public class MusicPlayerTest {
         Mockito.verify(gameOverMock, Mockito.times(1)).stop();
         Mockito.verify(selectMock, Mockito.times(1)).stop();
         Mockito.verify(hitMock, Mockito.times(1)).stop();
+        Mockito.verify(hpMock, Mockito.times(1)).stop();
+        Mockito.verify(newLevelMock, Mockito.times(1)).stop();
+        Mockito.verify(doubleMoneyMock, Mockito.times(1)).stop();
+        Mockito.verify(halfMoneyMock, Mockito.times(1)).stop();
+        Mockito.verify(selectMock, Mockito.times(1)).stop();
+        Mockito.verify(coinMock, Mockito.times(1)).stop();
+        Mockito.verify(victoryMock, Mockito.times(1)).stop();
     }
 
 }
