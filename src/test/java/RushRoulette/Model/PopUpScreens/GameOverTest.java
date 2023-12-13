@@ -43,5 +43,22 @@ public class GameOverTest {
         assertTrue(gameOver.saveSelected());
     }
 
+    @Test
+    public void testGetEntry() {
+        GameOver gameOver = new GameOver(50); // Assuming a score of 50
+
+        // Assuming the entries list contains "Retry", "Save", "Quit"
+        String expectedFirstEntry = "Retry";
+        String actualFirstEntry = gameOver.getEntry(0);
+
+        assertEquals(expectedFirstEntry, actualFirstEntry);
+
+        // Assuming the entries list contains "Retry", "Save", "Quit"
+        String expectedSecondEntry = "Save";
+        String actualSecondEntry = gameOver.getEntry(1);
+
+        assertEquals(expectedSecondEntry, actualSecondEntry);
+    }
+
 }
 
