@@ -57,7 +57,4 @@ private Position chasePlayer(Position enemyPosition, Position playerPosition){
         }
     }
 
-    public void adjustEnemySpeed(int speedModifier){
-        enemySpeed+=speedModifier;
-    }
 }

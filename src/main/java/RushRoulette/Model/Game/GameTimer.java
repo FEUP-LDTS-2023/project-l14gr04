@@ -32,7 +32,7 @@ public class GameTimer {
         currentTime--;
 
         if(currentTime<0){
-            currentTime=initialTime;
+            resetTimer();
 
         }
     }
@@ -43,4 +43,7 @@ public class GameTimer {
     }
 
 
+    public void resetTimer() {
+        currentTime=initialTime;
+    }
 }
