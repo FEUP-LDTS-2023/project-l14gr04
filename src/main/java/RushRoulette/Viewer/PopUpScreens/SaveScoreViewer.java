@@ -21,6 +21,7 @@ public class SaveScoreViewer extends Viewer<SaveScore> {
         gui.drawText(new Position(0, 6), "||                                    ||", "#f500ff");
         gui.drawText(new Position(0, 7), "||                                    ||", "#f500ff");
         gui.drawText(new Position(0, 8), "||                                    ||", "#f500ff");
+        gui.drawText(new Position(2, 8), "             ________               ", "#40F5CE");
         gui.drawText(new Position(0, 9), "||                                    ||", "#f500ff");
         gui.drawText(new Position(0, 10), "||                                    ||", "#f500ff");
         gui.drawText(new Position(0, 11), "||                                    ||", "#f500ff");
@@ -73,10 +74,19 @@ public class SaveScoreViewer extends Viewer<SaveScore> {
 
         gui.drawText(new Position(5,19),"Your score:" + getModel().getScore()   ,"#FFFFFF");
 
-        //name draw
+        //name draw with restrictions of ::::: 8 spaces::::
         if(!getModel().getNickNameKeyList().isEmpty()){
-            for (int i = 0; i < getModel().getNickNameKeyList().size(); i++) {
-                gui.drawText(new Position(12+i, 8 ), getModel().getNickNameKeyList().get(i), "#40F5CE");
+            if(getModel().getNickNameKeyList().size() <= 8) {
+                for (int i = 0; i < getModel().getNickNameKeyList().size(); i++) {
+                    gui.drawText(new Position(15 + i, 8), getModel().getNickNameKeyList().get(i), "#40F5CE");
+
+                }
+            }
+            else{ for (int i = 0; i < 8; i++) {
+                gui.drawText(new Position(15 + i, 8), getModel().getNickNameKeyList().get(i), "#40F5CE");
+
+            }
+
 
             }
         }

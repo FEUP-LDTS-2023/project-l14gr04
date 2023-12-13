@@ -89,7 +89,7 @@ public class LeaderBoardEditor {
         List<String> newLines = new ArrayList<>();
         newLines.add("======== L E A D E R B O A R D =========");
         newLines.add("||                                    ||");
-        newLines.add("||   PLAYER                     SCORE ||");
+        newLines.add("||     PLAYER                SCORE    ||");
 
         for(int i = 0; i < scoreContainer.size(); i++){
             int rank = i+1;
@@ -97,29 +97,29 @@ public class LeaderBoardEditor {
             int score = scoreContainer.get(i);
             String name = nameContainer.get(i);
 
-            int remainingPadding = linePadding - ( "|| 00".length() + " - ".length() + name.length() +
-                    "000".length() + "  ||".length() + 3);
+            int remainingPadding = linePadding - ( "||   00".length() + " - ".length() + name.length() +
+                    "000".length() + "     ||".length() + 3);
 
             if(rank<10){
 
                 if(score < 10){
 
-                    String newLine = "|| 0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                    + "00" + score + "  ||";
+                    String newLine = "||   0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                    + "00" + score + "     ||";
 
                     newLines.add(newLine);
                 }
                 else if(score < 100){
 
-                    String newLine = "|| 0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                            + "0" + score + "  ||";
+                    String newLine = "||   0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                            + "0" + score + "     ||";
 
                     newLines.add(newLine);
                 }
 
                 else {
-                    String newLine = "|| 0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                            + score + "  ||";
+                    String newLine = "||   0" + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                            + score + "     ||";
 
                     newLines.add(newLine);
                 }
@@ -130,23 +130,23 @@ public class LeaderBoardEditor {
 
                 if(score < 10){
 
-                    String newLine = "|| " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                            + "00" + score + "  ||";
+                    String newLine = "||   " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                            + "00" + score + "     ||";
 
                     newLines.add(newLine);
                 }
 
                 else if(score < 100){
 
-                    String newLine = "|| " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                            + "0" + score + "  ||";
+                    String newLine = "||   " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                            + "0" + score + "     ||";
 
                     newLines.add(newLine);
                 }
 
                 else {
-                    String newLine = "|| " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
-                            + score + "  ||";
+                    String newLine = "||   " + rank + " - " + name + " - " + " ".repeat(remainingPadding)
+                            + score + "     ||";
 
                     newLines.add(newLine);
                 }
