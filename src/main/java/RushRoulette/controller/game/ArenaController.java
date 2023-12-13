@@ -70,7 +70,7 @@ public class ArenaController extends GameController {
         else if(getModel().getGameTimer().getCurrentTime()==0){
 
 
-                level+=24;
+                level+=1;
                 getModel().getPlayer().levelPoints();
 
                 if(level == 10){
