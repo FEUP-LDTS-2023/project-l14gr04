@@ -1,6 +1,5 @@
 package RushRoulette.Model;
 
-import RushRoulette.Model.Position;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 
