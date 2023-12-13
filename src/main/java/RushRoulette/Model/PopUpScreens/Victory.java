@@ -6,7 +6,7 @@ import java.util.List;
 public class Victory {
     private final List<String> entries;
     private int score;
-    private int Entry = 0;
+    int Entry = 0;
 
     public Victory(int score){
         this.entries = Arrays.asList("Retry", "Save" ,"Menu");
