@@ -48,22 +48,7 @@ public class Arena {
         }
         return true;
     }
-    public boolean isCoinFree(Position position){
-        for(Coin c:coins){
-            if(c.getPosition().equals(position)){
-                return false;
-            }
-        }
-        return true;
-    }
-    public boolean isPowerUpFree(Position position){
-        for(PowerUp p:powerUps){
-            if(p.getPosition().equals(position)){
-                return false;
-            }
-        }
-        return true;
-    }
+
 
         public List<Enemy> getEnemies() {
             return enemies;
