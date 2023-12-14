@@ -260,6 +260,7 @@ public class SaveScoreController extends Controller<SaveScore> {
                 if (getModel().menuSelected()) {
                     MusicPlayer.getInstance().stopAll();
                     MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
+                    getModel().resetNickName();
                     application.setState(new MenuState(new Menu()));
                 }
                 else if (getModel().nextSelected()) {
