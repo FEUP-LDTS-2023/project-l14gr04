@@ -4,4 +4,4 @@ build/
 gradle/
 gradlew.bat
 gradlew
-src/main/resources/LeaderBoard
+src/main/resources/LeaderBoard/LeaderBoard.txt
