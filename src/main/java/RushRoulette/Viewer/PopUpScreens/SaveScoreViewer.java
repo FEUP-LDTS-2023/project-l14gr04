@@ -43,6 +43,7 @@ public class SaveScoreViewer extends Viewer<SaveScore> {
                 getModel().isSelected(0)? "#FFD700" : "#FFFFFF");
 
         if(!getModel().getNickNameKeyList().isEmpty()){
+            getModel().setNextisAvailable(true);
             gui.drawText(new Position(12 + 11, 10), getModel().getEntry(1),
                     getModel().isSelected(1)? "#FFD700" : "#FFFFFF");
         }

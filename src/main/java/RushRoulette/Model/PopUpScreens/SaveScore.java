@@ -11,7 +11,7 @@ public class SaveScore {
 
     private String nickname;
     private static List<String> nickNameKeyList = new ArrayList<String>(); //todo: tem q dar reset como o score
-
+    private static boolean nextisAvailable = false;
 
     public SaveScore(int score){
         this.entries = Arrays.asList("Menu", "Next",
@@ -21,6 +21,7 @@ public class SaveScore {
 
 
         this.score = score;
+
     }
 
     public String getNickname(){
@@ -43,6 +44,21 @@ public class SaveScore {
         if(entryCounter >this.entries.size()-1){
             entryCounter = 0;
         }
+    }
+
+    public void skipNext(){
+        entryCounter+=2;
+        if(entryCounter >this.entries.size()-1){
+            entryCounter = 0;
+        }
+    }
+
+    public void setNextisAvailable(boolean nextisAvailable) {
+        SaveScore.nextisAvailable = nextisAvailable;
+    }
+
+    public static boolean isNextisAvailable() {
+        return nextisAvailable;
     }
 
     public void previousEntry(){
