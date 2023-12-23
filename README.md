@@ -70,9 +70,9 @@ The other existing states work in the same logic as the Game State (shown in the
 In testing, our primary focus was to cover as many methods as possible.
 ![](docs/Images/coverage.png )
 
-### Mutation testing report
+### Mutation testing report link
 In this report, the test class "NoExit" isn't included because it would prevent Pitest from terminating.
-![](docs/Images/Mutation_Report.png )
+[Mutation tests](docs/pitest/index.html)
 
 
 ## CODE SMELLS
