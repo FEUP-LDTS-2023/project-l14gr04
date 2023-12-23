@@ -1,5 +1,7 @@
 # LDTS_1404 - RUSH ROULETTE
 
+This project was developed by *Hugo Cruz*(up202205022@fe.up.pt), *João Martinho*(up202204883@fe.up.pt) and *Tomás Telmo*(up202206091@edu.fe.up.pt) for the curricular unit LDTS 2023/24.
+
 ## GAME PRESENTATION
 
 **Rush Roulette** is a survival-type multi-directional arcade game where you control your player with the main goal of surviving for as long as you can. 
@@ -62,5 +64,22 @@ A UML communication diagram showing how the involved classes communicate during 
 A UML communication diagram showing how the involved classes communicate during a game step when the Game State is active:
 ![](docs/Images/communication3.drawio.png)
 The other existing states work in the same logic as the Game State (shown in the image above), so we didn´t think there was the need to exemplify each one individually.
+
+## Tests
+
+In testing, our primary focus was to cover as many methods as possible.
+![](docs/Images/coverage.png )
+
+### Link to mutation testing report
+In this report, the test class "NoExit" isn't included because it would prevent Pitest from terminating.
+[Mutation tests](build/reports/pitest/index.html);
+
+
 ## CODE SMELLS
 The main code smell there is in our code is the mode of application of the PowerUps. As we have different options of PowerUps to be applied, we realized that we should have applied the strategy pattern to deal with it. that way, it would make our code more efficient and would make it easier if we wanted to add any new functionalities to it. 
+
+## Self Evaluation 
+
+- Hugo Cruz : 33.3% 
+- João Martinho : 33.3%
+- Tomás Telmo: 33.3%
