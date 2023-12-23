@@ -39,19 +39,22 @@ public class SaveScoreViewer extends Viewer<SaveScore> {
         gui.drawText(new Position(12,5), "WRITE YOUR NAME!", "#f500ff" );
 
 
+        gui.drawText(new Position(12, 10), getModel().getEntry(0),
+                getModel().isSelected(0)? "#FFD700" : "#FFFFFF");
+
+        if(!getModel().getNickNameKeyList().isEmpty()){
+            getModel().setNextisAvailable(true);
+            gui.drawText(new Position(12 + 11, 10), getModel().getEntry(1),
+                    getModel().isSelected(1)? "#FFD700" : "#FFFFFF");
+        }
+
         int lineSpaceCounter = 0;
         int lineSpaceCounter2 = 0;
         int lineSpaceCounter3 = 0;
 
-        for(int i=0; i<getModel().getNumberEntries();i++){
+        for(int i=2; i<getModel().getNumberEntries();i++){
 
-            if(i<=1){
-                gui.drawText(
-                        new Position(12 + 11*i, 10), getModel().getEntry(i),
-                        getModel().isSelected(i)? "#FFD700" : "#FFFFFF");
-
-            }
-            else if(i <= 11){
+            if(i <= 11){
                 gui.drawText(
                     new Position(10 + lineSpaceCounter, 12), getModel().getEntry(i),
                     getModel().isSelected(i)? "#FFD700" : "#FFFFFF");
@@ -91,7 +94,6 @@ public class SaveScoreViewer extends Viewer<SaveScore> {
             }
         }
 
-
     }
-
 }
+

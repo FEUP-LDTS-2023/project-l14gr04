@@ -25,11 +25,35 @@ public class SaveScoreController extends Controller<SaveScore> {
 
         switch (action) {
             case LEFT:
-                getModel().previousEntry();
+
+                if(getModel().qSelected()){
+                    if(!getModel().isNextisAvailable()){
+                        getModel().previousEntry();
+                        getModel().previousEntry();
+                    }
+                    else {
+                        getModel().previousEntry();
+                    }
+                }
+                else{
+                    getModel().previousEntry();
+                }
                 MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case RIGHT:
-                getModel().nextEntry();
+
+                if(getModel().menuSelected()){
+                    if(!getModel().isNextisAvailable()){
+                        getModel().skipNext();
+                    }
+                    else {
+                        getModel().nextEntry();
+                    }
+                }
+                else{
+                    getModel().nextEntry();
+                }
+
                 MusicPlayer.getInstance().start(Sounds.SELECT);
                 break;
             case DOWN:
@@ -260,6 +284,8 @@ public class SaveScoreController extends Controller<SaveScore> {
                 if (getModel().menuSelected()) {
                     MusicPlayer.getInstance().stopAll();
                     MusicPlayer.getInstance().start(Sounds.MENU_SOUNDTRACK);
+                    getModel().resetNickName();
+                    getModel().setNextisAvailable(false);
                     application.setState(new MenuState(new Menu()));
                 }
                 else if (getModel().nextSelected()) {
