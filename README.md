@@ -45,21 +45,22 @@ This Project was developed by Hugo Cruz, João Martinho and Tomás Telmo for LDT
 ![](docs/Images/LDTS-UML.drawio.png)
 
 ## DESIGN PATTERNS
-In our game we used **MVC ARCHITECTURE**, combined with **FACTORY METHOD** and **STATE** patterns. 
+### FACTORY METHOD
+The Factory Method pattern is a design pattern that provides an interface for creating objects in a superclass, but allows the respective subclasses to alter the type of objects that will eventually be created, composed and represented, resulting in an easier abstraction
 
-**MVC ARCHITECTURE:** (Model, View, Controller)
 
--The model section contains all the data classes
-
--The view section is currently planned to display the models with draw methods
-
--The controller section is in charge of interpreting the user commands and presenting the viewer section with the necessary data for the draw methods
-
-**STATE PATTERN:**
-In order to change from the menu to the game itself during the application's runtime we decided to use the state pattern
-
-**FACTORY METHOD PATTERN:**
-Since both in the menu and in the game we need to access the corresponding viewers and controllers, and both are in different states, we decided to leave the corresponding code in an interface (State<T>). It results in an easier abstraction!  
-
-## UML Communication Diagrams 
-(to be defined)
+### STATE PATTERN
+#### DESCRIPTION
+The state pattern is a behavioral design pattern that represents each possible state of an object as a different class, and each states has its own behaviour pre-defined. In our specific case, we have a different state for each possible game situation: the one related to the game (GameState), to the menu (MenuState), to the instructions menu (InstructionsState), to the leaderboard (LeaderboardState), and now the ones that can happen after you play the game: if you loose (GameOverState), if you can successfully complete the game (VictoryState), and the one that will allow you to save your score with the name you want to appear in the leaderboard (SaveScoreState). Without this pattern, our code would be much messier and not as efficient.
+#### IMPLEMENTATION
+![](docs/Images/State.drawio.png )
+## UML COMMUNICATION DIAGRAMS
+A UML communication diagram showing how the involved classes communicate during a game step when the Menu State is active:
+![](docs/Images/communication1.drawio.png)
+A UML communication diagram showing how the involved classes communicate during a game step when the Menu State is active and the user selects an option:
+![](docs/Images/communication2.drawio.png)
+A UML communication diagram showing how the involved classes communicate during a game step when the Game State is active:
+![](docs/Images/communication3.drawio.png)
+The other existing states work in the same logic as the Game State (shown in the image above), so we didn´t think there was the need to exemplify each one individually.
+## CODE SMELLS
+The main code smell there is in our code is the mode of application of the PowerUps. As we have different options of PowerUps to be applied, we realized that we should have applied the strategy pattern to deal with it. that way, it would make our code more efficient and would make it easier if we wanted to add any new functionalities to it. 
