@@ -7,7 +7,8 @@
 Each level corresponds to a timer of 10 seconds, and at the beggining of each level a new enemy will be inserted into the game, making the game progressively harder as you go through the levels. Your enemies will follow all your moves with the main goal of catching you as fast as possible. In addition, you will find some coins that will boost your overall score, as well as some power-ups that can be either good or bad for your survival, that´s the fun of a good roulette ! 
 
 This Project was developed by Hugo Cruz, João Martinho and Tomás Telmo for LDTS 2023/2024.
-
+## DEMO
+![](docs/gifs/DEMO.gif)
 ## FEATURES
 ### IMPLEMENTED FEATURES
 * **Menu** - When the game is initialized, a Menu will appear with four different options (Play, Instructions, Leaderboard, Exit)
