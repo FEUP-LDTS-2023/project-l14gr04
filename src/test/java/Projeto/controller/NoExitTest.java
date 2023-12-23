@@ -1,4 +1,3 @@
-
 package Projeto.controller;
 
 import Projeto.Model.Game.Arena.Arena;
