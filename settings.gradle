@@ -1,2 +1,4 @@
-rootProject.name = 'LDTS-PROJECT'
+rootProject.name = 'Projeto'
+include 'src:main:Projeto'
+findProject(':src:main:Projeto')?.name = 'Projeto'
 
